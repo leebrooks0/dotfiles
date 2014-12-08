@@ -1,69 +1,81 @@
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'Raimondi/delimitMate'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'scrooloose/syntastic'
-Plugin 'spolu/dwm.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'rking/ag.vim'
-Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-
-call vundle#end()
 filetype plugin indent on
 
-" Plugin configuration
-" Solarized
+call plug#begin('~/.vim/plugged')
+let g:plug_timeout = 1000 " YCM is slooow
+
+" Aesthetics
+Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
+Plug 'myusuf3/numbers.vim'
+Plug 'luochen1990/rainbow'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'spolu/dwm.vim'
+
+" General Programming
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'kien/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'Raimondi/delimitMate'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-surround'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tomtom/tcomment_vim'
+
+" Python & Web Dev
+Plug 'davidhalter/jedi-vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'mattn/emmet-vim'
+Plug 'ehamberg/vim-cute-python'
+Plug 'alfredodeza/pytest.vim'
+Plug 'jmcantrell/vim-virtualenv'
+
+call plug#end()
+
+" Gruvbox
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
-" Airline
-let g:airline#extensions#tabline#enabled=1
+" Rainbow
+let g:rainbow_active = 1
+" Disable for html
+let g:rainbow_conf = {
+\   'separately': {
+\       'html': 0
+\   }
+\}
 
-" Rainbow Parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" YCM
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_path_to_python_interpreter = '/bin/python'
+
+" Jedi
+" Want refactoring, navigation etc. features only
+"let g:jedi#completions_enabled = 0
 
 " Ctrlp
-let g:ctrlp_by_filename = 1
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
+nnoremap <Leader>f :CtrlPFunky<Cr>
 
 " Emmet
 let g:use_emmet_complete_tag = 1
 
-" Syntastic
-let g:syntastic_auto_loc_list = 1
-
 " General settings
 syntax on
-set autoread
+set shell=/bin/bash
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf-8
-set history=1000
+set history=200
 set laststatus=2
 set nowrap
 set ruler
 set wildmenu
 set wildmode=list:full
-
-" Show line numbers
-set relativenumber
+set number
 set numberwidth=5
-
-" Lines must be less than 80 chars
-set textwidth=79
-set colorcolumn=+1
 
 " Indentation
 set autoindent
@@ -80,21 +92,11 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
 nnoremap <esc> :nohlsearch<return><esc>
 
-" Natural window splitting
-set splitbelow
-set splitright
-
-" Disable Vim backups
-set noswapfile
-set nowritebackup
-
 " Font
-set guifont=Source\ Code\ Pro\ 10
+set guifont=Source\ Code\ Pro\ 11
 
 " Hide menu, toolbar, and scrollbar
-set guioptions-=m  "menu bar
-set guioptions-=T  "toolbar
-set guioptions-=r  "scrollbar
-
+set guioptions=
