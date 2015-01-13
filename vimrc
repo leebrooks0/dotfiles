@@ -1,7 +1,6 @@
 filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
-let g:plug_timeout = 1000 " YCM is slooow
 
 " Aesthetics
 Plug 'morhetz/gruvbox'
@@ -13,8 +12,8 @@ Plug 'spolu/dwm.vim'
 
 " General Programming
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'Raimondi/delimitMate'
@@ -22,16 +21,17 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tomtom/tcomment_vim'
+Plug 'vim-scripts/vim-auto-save'
 
 " Python & Web Dev
 Plug 'davidhalter/jedi-vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mattn/emmet-vim'
-Plug 'ehamberg/vim-cute-python'
 Plug 'alfredodeza/pytest.vim'
-Plug 'jmcantrell/vim-virtualenv'
 
 call plug#end()
+
+let g:auto_save = 1
 
 " Gruvbox
 set background=dark
@@ -45,14 +45,6 @@ let g:rainbow_conf = {
 \       'html': 0
 \   }
 \}
-
-" YCM
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_path_to_python_interpreter = '/bin/python'
-
-" Jedi
-" Want refactoring, navigation etc. features only
-"let g:jedi#completions_enabled = 0
 
 " Ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -73,9 +65,11 @@ set laststatus=2
 set nowrap
 set ruler
 set wildmenu
-set wildmode=list:full
+set wildmode=list:longest,full
 set number
 set numberwidth=5
+set nobackup
+set noswapfile
 
 " Indentation
 set autoindent
@@ -93,6 +87,7 @@ set incsearch
 set ignorecase
 set smartcase
 
+nnoremap ; :
 nnoremap <esc> :nohlsearch<return><esc>
 
 " Font
