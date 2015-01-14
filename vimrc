@@ -1,5 +1,7 @@
 filetype plugin indent on
 
+let mapleader=" "
+
 call plug#begin('~/.vim/plugged')
 
 " Aesthetics
@@ -8,12 +10,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'luochen1990/rainbow'
 Plug 'gorodinskiy/vim-coloresque'
-Plug 'spolu/dwm.vim'
 
 " General Programming
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'Raimondi/delimitMate'
@@ -33,6 +36,10 @@ call plug#end()
 
 let g:auto_save = 1
 
+let NERDTreeIgnore=['__pycache__', '.git']
+let NERDTreeShowHidden=1
+let NERDTreeAutoDeleteBuffer=1
+
 " Gruvbox
 set background=dark
 colorscheme gruvbox
@@ -47,9 +54,12 @@ let g:rainbow_conf = {
 \}
 
 " Ctrlp
+let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
-nnoremap <Leader>f :CtrlPFunky<Cr>
+nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>f :CtrlPFunky<CR>
+nnoremap <Leader>t :CtrlPBufTag<CR>
 
 " Emmet
 let g:use_emmet_complete_tag = 1
@@ -95,3 +105,13 @@ set guifont=Source\ Code\ Pro\ 11
 
 " Hide menu, toolbar, and scrollbar
 set guioptions=
+
+" Quicker window movement
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+
+" Easier window splitting
+nnoremap <leader>s :vsplit<CR>
+nnoremap <leader>hs :split<CR>
