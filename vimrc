@@ -16,7 +16,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'Raimondi/delimitMate'
@@ -36,6 +35,7 @@ call plug#end()
 
 let g:auto_save = 1
 
+autocmd vimenter * NERDTree
 let NERDTreeIgnore=['__pycache__', '.git']
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
@@ -68,6 +68,7 @@ let g:use_emmet_complete_tag = 1
 syntax on
 set shell=/bin/bash
 set backspace=indent,eol,start
+set clipboard=unnamedplus
 set cursorline
 set encoding=utf-8
 set history=200
