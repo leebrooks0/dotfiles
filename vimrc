@@ -1,4 +1,7 @@
+set nocompatible
+
 filetype plugin indent on
+syntax on
 
 let mapleader=" "
 
@@ -6,9 +9,9 @@ call plug#begin('~/.vim/plugged')
 
 " Aesthetics
 Plug 'morhetz/gruvbox'
-"Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'myusuf3/numbers.vim'
-Plug 'luochen1990/rainbow'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'gorodinskiy/vim-coloresque'
 
 " General Programming
@@ -23,6 +26,7 @@ Plug 'rking/ag.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/vim-auto-save'
+Plug 'ervandew/supertab'
 
 " Python & Web Dev
 Plug 'davidhalter/jedi-vim'
@@ -51,15 +55,6 @@ if !has("gui_running")
    let g:gruvbox_italic=0
 endif
 
-" Rainbow
-let g:rainbow_active = 1
-" Disable for html
-let g:rainbow_conf = {
-\   'separately': {
-\       'html': 0
-\   }
-\}
-
 let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
@@ -72,7 +67,7 @@ nnoremap <Leader>t :CtrlPBufTag<CR>
 let g:use_emmet_complete_tag = 1
 
 " General settings
-syntax on
+set autoread
 set shell=/bin/bash
 set backspace=indent,eol,start
 set clipboard=unnamedplus
@@ -82,10 +77,11 @@ set laststatus=2
 set nowrap
 set ruler
 set wildmenu
-set wildmode=list:longest,full
+set wildmode=list:full
 set number
 set nobackup
 set noswapfile
+set scrolloff=7
 
 " Indentation
 set autoindent
@@ -104,7 +100,22 @@ set ignorecase
 set smartcase
 
 nnoremap ; :
-nnoremap <esc> :nohlsearch<return><esc>
+nmap <leader>/ :nohlsearch<CR>
+
+" Bash like keys for the command line
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
+
+nnoremap <leader>q :bd<CR> " Quickly close the current buffer
+
+nnoremap <silent> <leader>ev :e ~/.vimrc<CR>
+" auto reload vimrc when editing it
+autocmd! bufwritepost .vimrc source %
+
+" Quickly get out of insert mode without your fingers having to leave the
+" home row (either use 'jj' or 'jk')
+inoremap jj <Esc>
 
 " Font
 set guifont=Source\ Code\ Pro\ 11
@@ -115,15 +126,14 @@ set guioptions=
 " Quicker window movement
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
-nnoremap <leader>h <C-w>h
+noremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
 
 " Easier window splitting
 nnoremap <leader>s :vsplit<CR>
 nnoremap <leader>hs :split<CR>
 
-function! Pyversion()
-    return (system('ruby -v')."lee"."%m)
-endfunction
-
-set statusline=%{Pyversion()}
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
