@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " Aesthetics
 Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'luochen1990/rainbow'
 Plug 'gorodinskiy/vim-coloresque'
@@ -18,11 +18,10 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'rking/ag.vim'
-Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/vim-auto-save'
 
 " Python & Web Dev
@@ -34,6 +33,11 @@ Plug 'alfredodeza/pytest.vim'
 call plug#end()
 
 let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 1
+
+" Strip all whitespace on save
+autocmd BufWrite * :%s/\s\+$//e
 
 autocmd vimenter * NERDTree
 let NERDTreeIgnore=['__pycache__', '.git']
@@ -43,6 +47,9 @@ let NERDTreeAutoDeleteBuffer=1
 " Gruvbox
 set background=dark
 colorscheme gruvbox
+if !has("gui_running")
+   let g:gruvbox_italic=0
+endif
 
 " Rainbow
 let g:rainbow_active = 1
@@ -53,10 +60,10 @@ let g:rainbow_conf = {
 \   }
 \}
 
-" Ctrlp
 let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+let g:ctrlp_funky_syntax_highlight = 1
 nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>f :CtrlPFunky<CR>
 nnoremap <Leader>t :CtrlPBufTag<CR>
@@ -69,7 +76,6 @@ syntax on
 set shell=/bin/bash
 set backspace=indent,eol,start
 set clipboard=unnamedplus
-set cursorline
 set encoding=utf-8
 set history=200
 set laststatus=2
@@ -78,7 +84,6 @@ set ruler
 set wildmenu
 set wildmode=list:longest,full
 set number
-set numberwidth=5
 set nobackup
 set noswapfile
 
@@ -116,3 +121,9 @@ nnoremap <leader>l <C-w>l
 " Easier window splitting
 nnoremap <leader>s :vsplit<CR>
 nnoremap <leader>hs :split<CR>
+
+function! Pyversion()
+    return (system('ruby -v')."lee"."%m)
+endfunction
+
+set statusline=%{Pyversion()}
