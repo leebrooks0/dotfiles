@@ -137,3 +137,5 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+autocmd BufWritePost *.py silent !autopep8 --in-place --aggressive %
