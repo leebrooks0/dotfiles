@@ -3,7 +3,7 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-let mapleader=" "
+let mapleader=' '
 
 call plug#begin('~/.vim/plugged')
 
@@ -23,30 +23,29 @@ Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rking/ag.vim'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
-Plug 'vim-scripts/vim-auto-save'
 Plug 'ervandew/supertab'
 
 " Python & Web Dev
 Plug 'davidhalter/jedi-vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mattn/emmet-vim'
 Plug 'alfredodeza/pytest.vim'
 
 call plug#end()
 
-let g:auto_save = 1
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_silent = 1
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Strip all whitespace on save
 autocmd BufWrite * :%s/\s\+$//e
 
-autocmd vimenter * NERDTree
-let NERDTreeIgnore=['__pycache__', '.git']
+let NERDTreeIgnore=['__pycache__', '.git$', '\.pyc$']
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
+noremap <leader>n :NERDTreeToggle<CR>
 
 " Gruvbox
 set background=dark
@@ -59,12 +58,15 @@ let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_funky_syntax_highlight = 1
-nnoremap <Leader>p :CtrlP<CR>
+nnoremap <leader>p :CtrlP<CR>
 nnoremap <Leader>f :CtrlPFunky<CR>
 nnoremap <Leader>t :CtrlPBufTag<CR>
 
 " Emmet
 let g:use_emmet_complete_tag = 1
+
+" Numbers
+let g:numbers_exclude = []
 
 " General settings
 set autoread
@@ -82,6 +84,7 @@ set number
 set nobackup
 set noswapfile
 set scrolloff=7
+set showcmd
 
 " Indentation
 set autoindent
@@ -100,22 +103,13 @@ set ignorecase
 set smartcase
 
 nnoremap ; :
+vnoremap ; :
 nmap <leader>/ :nohlsearch<CR>
 
 " Bash like keys for the command line
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 cnoremap <C-K> <C-U>
-
-nnoremap <leader>q :bd<CR> " Quickly close the current buffer
-
-nnoremap <silent> <leader>ev :e ~/.vimrc<CR>
-" auto reload vimrc when editing it
-autocmd! bufwritepost .vimrc source %
-
-" Quickly get out of insert mode without your fingers having to leave the
-" home row (either use 'jj' or 'jk')
-inoremap jj <Esc>
 
 " Font
 set guifont=Source\ Code\ Pro\ 11
@@ -133,9 +127,20 @@ nnoremap <leader>l <C-w>l
 nnoremap <leader>s :vsplit<CR>
 nnoremap <leader>hs :split<CR>
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" Rainbow parentheses
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
 
-autocmd BufWritePost *.py silent !autopep8 --in-place --aggressive %
+" Autoformat python code
+autocmd BufWritePost *.py silent! !autopep8 --in-place %
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" Pytest
+" nmap <silent><Leader>f <Esc>:Pytest file<CR>
+" nmap <silent><Leader>c <Esc>:Pytest class<CR>
+" nmap <silent><Leader>m <Esc>:Pytest method<CR>
