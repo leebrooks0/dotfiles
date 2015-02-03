@@ -3,7 +3,7 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-let mapleader=' '
+let mapleader = ' '
 
 call plug#begin('~/.vim/plugged')
 
@@ -29,7 +29,6 @@ Plug 'ervandew/supertab'
 " Python & Web Dev
 Plug 'davidhalter/jedi-vim'
 Plug 'mattn/emmet-vim'
-Plug 'alfredodeza/pytest.vim'
 
 call plug#end()
 
@@ -45,7 +44,8 @@ autocmd BufWrite * :%s/\s\+$//e
 let NERDTreeIgnore=['__pycache__', '.git$', '\.pyc$']
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
-noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>e :NERDTreeToggle<CR>
+noremap <leader>ef :NERDTreeFind<CR>
 
 " Gruvbox
 set background=dark
@@ -60,7 +60,7 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_funky_syntax_highlight = 1
 nnoremap <leader>p :CtrlP<CR>
 nnoremap <Leader>f :CtrlPFunky<CR>
-nnoremap <Leader>t :CtrlPBufTag<CR>
+nnoremap <Leader>b :CtrlPBufTag<CR>
 
 " Emmet
 let g:use_emmet_complete_tag = 1
@@ -139,8 +139,3 @@ autocmd BufWritePost *.py silent! !autopep8 --in-place %
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
-" Pytest
-" nmap <silent><Leader>f <Esc>:Pytest file<CR>
-" nmap <silent><Leader>c <Esc>:Pytest class<CR>
-" nmap <silent><Leader>m <Esc>:Pytest method<CR>
