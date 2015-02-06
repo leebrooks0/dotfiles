@@ -1,3 +1,4 @@
+" Do not retain compatibility with Vi
 set nocompatible
 
 filetype plugin indent on
@@ -48,6 +49,7 @@ noremap <leader>e :NERDTreeToggle<CR>
 noremap <leader>ef :NERDTreeFind<CR>
 
 " Gruvbox
+" Try and use colours that look good on a dark background
 set background=dark
 colorscheme gruvbox
 if !has("gui_running")
@@ -69,9 +71,12 @@ let g:use_emmet_complete_tag = 1
 let g:numbers_exclude = []
 
 " General settings
+" Automatically update files changed outside of Vim
 set autoread
 set shell=/bin/bash
+" Backspace through autoindents, linebreaks and the start of inserts
 set backspace=indent,eol,start
+" Yank, delete, change and put to the system clipboard
 set clipboard=unnamedplus
 set encoding=utf-8
 set history=200
@@ -81,16 +86,18 @@ set ruler
 set wildmenu
 set wildmode=list:full
 set number
-set nobackup
 set noswapfile
 set scrolloff=7
 set showcmd
 
 " Indentation
+" Copy indent from current line when starting new line
 set autoindent
+" Copy the structure of the existing lines indent when autoindenting
+set copyindent
 set smartindent
 
-" Use spaces, not tabs
+" Replace tabs with spaces
 set expandtab
 set shiftwidth=4
 set softtabstop=4
