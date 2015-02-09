@@ -5,6 +5,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
+syntax on
 filetype plugin indent on
 let mapleader = ' '
 
@@ -23,7 +24,6 @@ set scrolloff=7                   " Lines above and below cursor when scrolling
 set shell=/bin/bash
 set splitbelow                    " Split windows like other editors
 set splitright
-set syntax                        " Use syntax highlighting
 set wildmenu
 set wildmode=list:longest,full
 
