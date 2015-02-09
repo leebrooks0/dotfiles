@@ -44,12 +44,6 @@ set shiftwidth=4                    " Number of spaces when indenting and dedent
 set tabstop=4                       " Spaces per tab
 set shiftround                      " Round indent to multiples of shiftwidth
 
-" Font
-set guifont=Source\ Code\ Pro\ 11
-
-" Hide menu, toolbar, and scrollbar
-set guioptions=
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Plugins
@@ -67,12 +61,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'mattn/emmet-vim'
-Plug 'morhetz/gruvbox'
 Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
@@ -95,11 +89,9 @@ let NERDTreeIgnore=['__pycache__', '.git$', '\.pyc$']
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
 
-" Gruvbox
-colorscheme gruvbox
-if !has("gui_running")
-   let g:gruvbox_italic=0
-endif
+" Molokai
+colorscheme molokai
+let g:rehash256 = 1
 
 " Ctrl-P
 let g:ctrlp_extensions = ['buffertag']
