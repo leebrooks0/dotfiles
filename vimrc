@@ -56,7 +56,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'davidhalter/jedi-vim'
+Plug 'ervandew/supertab'
 Plug 'gorodinskiy/vim-coloresque'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
@@ -72,6 +74,7 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 
 call plug#end()
