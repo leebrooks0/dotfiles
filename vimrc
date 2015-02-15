@@ -56,7 +56,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'davidhalter/jedi-vim'
-Plug 'ervandew/supertab'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
