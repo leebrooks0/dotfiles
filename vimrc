@@ -58,17 +58,16 @@ let g:plug_timeout = 1000
 Plug 'airblade/vim-gitgutter'
 Plug 'Chiel92/vim-autoformat'
 Plug 'davidhalter/jedi-vim'
-Plug 'ervandew/supertab'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'mattn/emmet-vim'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'myusuf3/numbers.vim'
 Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup'
 Plug 'scrooloose/syntastic'
@@ -151,4 +150,4 @@ autocmd Syntax * RainbowParenthesesLoadBraces
 autocmd BufWrite * :%s/\s\+$//e
 
 " Autoformat code on save
-autocmd BufWrite *.css,*.html,*.js,*.py :Autoformat<CR>
+autocmd BufWritePre *.css,*.html,*.js,*.py :Autoformat
