@@ -72,6 +72,7 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
