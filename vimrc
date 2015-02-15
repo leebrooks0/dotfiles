@@ -64,8 +64,11 @@ Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'mattn/emmet-vim'
 Plug 'myusuf3/numbers.vim'
+Plug 'othree/html5.vim'
 Plug 'rking/ag.vim'
+Plug 'rstacruz/sparkup'
 Plug 'scrooloose/syntastic'
+Plug 'spolu/dwm.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
@@ -103,6 +106,9 @@ let g:use_emmet_complete_tag = 1
 """ Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Ag
+nnoremap <leader>a :Ag<space>
 
 " Ctrl P
 nnoremap <leader>p :CtrlP<CR>
