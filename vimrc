@@ -64,7 +64,6 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'mattn/emmet-vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomasr/molokai'
@@ -84,11 +83,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-" Nerdtree
-let NERDTreeIgnore=['__pycache__', '.git$', '\.pyc$']
-let NERDTreeShowHidden=1
-let NERDTreeAutoDeleteBuffer=1
 
 " Molokai
 colorscheme molokai
@@ -139,10 +133,6 @@ nmap <leader>/ :nohlsearch<CR>
 " Retain selection when indenting
 vnoremap < <gv
 vnoremap > >gv
-
-" Toggle on and off NERDTree
-noremap <leader>e :NERDTreeToggle<CR>
-noremap <leader>ef :NERDTreeFind<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
