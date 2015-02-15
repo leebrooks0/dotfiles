@@ -123,16 +123,6 @@ cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 cnoremap <C-K> <C-U>
 
-" Easy window movement
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-noremap <leader>h <C-w>h
-nnoremap <leader>l <C-w>l
-
-" Easy window splitting
-nnoremap <leader>s :vsplit<CR>
-nnoremap <leader>hs :split<CR>
-
 " Shift key is effort...
 nnoremap ; :
 vnoremap ; :
