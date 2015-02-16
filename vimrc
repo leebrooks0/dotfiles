@@ -53,7 +53,6 @@ set shiftround                      " Round indent to multiples of shiftwidth
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.vim/plugged')
-let g:plug_timeout = 1000
 
 Plug 'airblade/vim-gitgutter'
 Plug 'Chiel92/vim-autoformat'
@@ -64,7 +63,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'myusuf3/numbers.vim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
@@ -77,7 +75,6 @@ Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'Yggdroot/indentLine'
 
 call plug#end()
