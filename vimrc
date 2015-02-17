@@ -18,6 +18,7 @@ set encoding=utf-8
 set history=200
 set laststatus=2                  " Always show statusline
 set mouse=a                       " Enable the mouse
+set noshowmode
 set noswapfile
 set nowrap
 set nowritebackup
