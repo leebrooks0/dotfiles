@@ -1,5 +1,8 @@
-# Remove the fish greeting
-set fish_greeting
+# oh-my-fish
+set fish_path $HOME/.oh-my-fish
+set fish_theme bobthefish
+set fish_plugins extract python z
+. $fish_path/oh-my-fish.fish
 
 # Use 256 colours
 set -x TERM xterm-256color

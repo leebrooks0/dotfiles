@@ -144,6 +144,9 @@ nnoremap <leader>0 :tablast<CR>
 nnoremap <leader><tab> :tabnew<CR>
 nnoremap <leader>z :tabclose!<CR>
 
+" Autoclear search highlights
+nnoremap <CR> :nohlsearch<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Autocommands
