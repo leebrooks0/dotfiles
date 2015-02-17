@@ -145,4 +145,4 @@ autocmd Syntax * RainbowParenthesesLoadBraces
 autocmd BufWrite * :%s/\s\+$//e
 
 " Autoformat code on save
-autocmd BufWritePre *.css,*.html,*.js,*.py Autoformat
+autocmd BufWritePre *.css,*.html,*.js,*.py silent! Autoformat
