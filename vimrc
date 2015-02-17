@@ -22,10 +22,8 @@ set noswapfile
 set nowrap
 set nowritebackup
 set number
-set scrolloff=7                   " Lines above and below cursor when scrolling
+set scrolloff=10                   " Lines above and below cursor when scrolling
 set shell=/bin/bash
-set splitbelow                    " Split windows like other editors
-set splitright
 set wildmenu
 set wildmode=list:longest,full
 
@@ -99,7 +97,7 @@ let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_match_window = 'top,order:ttb,max:35'
+let g:ctrlp_match_window = 'max:35'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
