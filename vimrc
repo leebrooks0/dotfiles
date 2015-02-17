@@ -54,11 +54,12 @@ set shiftround                      " Round indent to multiples of shiftwidth
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
 Plug 'Chiel92/vim-autoformat'
 Plug 'davidhalter/jedi-vim'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
@@ -84,9 +85,15 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set ttimeoutlen=50
+let g:airline_theme='dark'
+let g:airline#extensions#branch#displayed_head_limit = 30
+
+ " Syntastic
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Molokai
