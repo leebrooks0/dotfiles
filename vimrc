@@ -141,7 +141,7 @@ nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 :tablast<CR>
 nnoremap <leader><tab> :tabnew<CR>
-nnoremap <leader>z :tabclose<CR>
+nnoremap <leader>z :tabclose!<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
