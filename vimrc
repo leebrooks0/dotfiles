@@ -13,6 +13,7 @@ set autoread                      " Autoread files when externally updated
 set background=dark
 set backspace=indent,eol,start    " Backspace like you would expect
 set clipboard=unnamedplus         " Use the system clipboard for copy and paste
+set colorcolumn=+1
 set cursorline
 set encoding=utf-8
 set history=200
@@ -72,7 +73,6 @@ Plug 'spolu/dwm.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
@@ -116,11 +116,6 @@ let g:ctrlp_match_window = 'max:35'
 " Ag
 nnoremap <leader>a :Ag<space>
 
-" Ctrl P
-nnoremap <leader>p :CtrlP<CR>
-nnoremap <Leader>f :CtrlPFunky<CR>
-nnoremap <Leader>b :CtrlPBufTag<CR>
-
 " Bash like keys for the command line
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
@@ -137,19 +132,17 @@ nmap <leader>/ :nohlsearch<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" Easier tabs
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
-nnoremap <leader>0 :tablast<CR>
-nnoremap <leader><tab> :tabnew<CR>
-nnoremap <leader>z :tabclose!<CR>
+" Share tab mappings with Ranger
+nnoremap <A>1 1gt
+nnoremap <A>2 2gt
+nnoremap <A>3 3gt
+nnoremap <A>4 4gt
+nnoremap <A>5 5gt
+nnoremap <A>6 6gt
+nnoremap <A>7 7gt
+nnoremap <A>8 8gt
+nnoremap <A>9 9gt
+nnoremap <C-t> :tabnew<CR>
 
 " Autoclear search highlights
 nnoremap <CR> :nohlsearch<CR>
