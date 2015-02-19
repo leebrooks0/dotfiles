@@ -15,11 +15,14 @@ set -x PYENV_ROOT "$HOME/.pyenv"
 set -x PATH "$PYENV_ROOT/bin" $PATH
 status --is-interactive; and . (pyenv init -|psub)
 
-set EDITOR vim
+# Use Vim everywhere
+set -x EDITOR vim
 
+# Hide the fish greeting
 function fish_greeting
 end
 
+# Show a more useful right prompt
 function fish_right_prompt
   set_color $fish_color_autosuggestion[1]
   set __python_version (python -V | cut -c1-)
