@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -21,10 +21,9 @@ set laststatus=2                  " Always show statusline
 set mouse=a                       " Enable the mouse
 set noshowmode
 set noswapfile
-set nowrap
 set nowritebackup
 set number
-set scrolloff=10                   " Lines above and below cursor when scrolling
+set scrolloff=7                   " Lines above and below cursor when scrolling
 set shell=/bin/bash
 set wildmenu
 set wildmode=list:longest,full
@@ -54,12 +53,9 @@ set shiftround                      " Round indent to multiples of shiftwidth
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'Chiel92/vim-autoformat'
 Plug 'davidhalter/jedi-vim'
-Plug 'gorodinskiy/vim-coloresque'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
@@ -107,6 +103,9 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'max:35'
 
+" indentLine
+let g:indentLine_char = '|'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Mappings
@@ -116,17 +115,9 @@ let g:ctrlp_match_window = 'max:35'
 " Ag
 nnoremap <leader>a :Ag<space>
 
-" Bash like keys for the command line
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
-cnoremap <C-K> <C-U>
-
 " Shift key is effort...
 nnoremap ; :
 vnoremap ; :
-
-" Remove search highlights
-nmap <leader>/ :nohlsearch<CR>
 
 " Retain selection when indenting
 vnoremap < <gv
