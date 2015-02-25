@@ -16,6 +16,7 @@ set clipboard=unnamedplus         " Use the system clipboard for copy and paste
 set colorcolumn=+1
 set cursorline
 set encoding=utf-8
+set foldmethod=syntax
 set history=200
 set laststatus=2                  " Always show statusline
 set mouse=a                       " Enable the mouse
@@ -56,6 +57,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'Chiel92/vim-autoformat'
 Plug 'davidhalter/jedi-vim'
+Plug 'fisadev/vim-isort'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
@@ -67,6 +69,7 @@ Plug 'rstacruz/sparkup'
 Plug 'scrooloose/syntastic'
 Plug 'spolu/dwm.vim'
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'tmhedberg/SimpylFold'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -153,5 +156,11 @@ autocmd Syntax * RainbowParenthesesLoadBraces
 " Strip all whitespace on save
 autocmd BufWrite * :%s/\s\+$//e
 
+" Autosort Python imports on save
+autocmd BufWritePre *.py silent! Isort
+
 " Autoformat code on save
 autocmd BufWritePre *.css,*.html,*.js,*.py silent! Autoformat
+
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+
