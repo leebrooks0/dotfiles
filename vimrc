@@ -35,12 +35,6 @@ set autoindent
 set copyindent
 set smartindent
 
-" Searching
-set hlsearch                        " Highlight all matches
-set incsearch                       " Highlight in real time
-set ignorecase
-set smartcase                       " Ignore 'ignorecase' if uppercase present
-
 " Tabs and spaces
 set expandtab                       " Replace tabs with spaces
 set shiftwidth=4                    " Number of spaces when indenting and dedenting
@@ -64,7 +58,7 @@ Plug 'fisadev/vim-isort'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'myusuf3/numbers.vim'
+Plug 'Lokaltog/vim-easymotion'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
@@ -95,6 +89,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set ttimeoutlen=50
 let g:airline_theme='dark'
+
+" EasyMotion
+let g:EasyMotion_smartcase = 1
 
  " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -150,8 +147,22 @@ nnoremap <A>8 8gt
 nnoremap <A>9 9gt
 nnoremap <C-t> :tabnew<CR>
 
-" Autoclear search highlights
-nnoremap <CR> :nohlsearch<CR>
+" EasyMotion
+" Remap default binding to single <leader>
+map <Leader> <Plug>(easymotion-prefix)
+" 2 character search
+map s <Plug>(easymotion-s2)
+map t <Plug>(easymotion-t2)
+" n character search
+map  / <Plug>(easymotion-sn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+" Easier hjkl
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " Keep cursor column for jk
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
