@@ -16,12 +16,11 @@ set clipboard=unnamedplus         " Use the system clipboard for copy and paste
 set colorcolumn=+0
 set cursorline
 set encoding=utf-8
-set foldmethod=syntax
 set history=200
 set laststatus=2                  " Always show statusline
-set mouse=a                       " Enable the mouse
 set noshowmode
 set noswapfile
+set nowrap
 set nowritebackup
 set number
 set scrolloff=10                  " Lines above and below cursor when scrolling
@@ -42,6 +41,9 @@ set tabstop=4                       " Spaces per tab
 set softtabstop=4                   " Backspace right through 'tab's
 set shiftround                      " Round indent to multiples of shiftwidth
 
+" More natural window splitting
+set splitbelow
+set splitright
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,6 +61,7 @@ Plug 'fisadev/vim-isort'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'majutsushi/tagbar'
 Plug 'mitsuhiko/jinja2'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'othree/html5.vim'
@@ -67,9 +70,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup'
 Plug 'scrooloose/syntastic'
-Plug 'spolu/dwm.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'tmhedberg/SimpylFold'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
@@ -133,16 +135,22 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Share tab mappings with Ranger
-nnoremap <A>1 1gt
-nnoremap <A>2 2gt
-nnoremap <A>3 3gt
-nnoremap <A>4 4gt
-nnoremap <A>5 5gt
-nnoremap <A>6 6gt
-nnoremap <A>7 7gt
-nnoremap <A>8 8gt
-nnoremap <A>9 9gt
-nnoremap <C-t> :tabnew<CR>
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <C-T> :tabnew<CR>
+
+" Easier window navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " EasyMotion
 " Remap default binding to single <leader>
@@ -160,6 +168,12 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " Keep cursor column for jk
+
+" Open Ranger to manage files
+nnoremap <Leader>r :!ranger<CR>
+
+" Tagbar
+nmap <silent> <leader>b :TagbarOpenAutoClose<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -181,5 +195,3 @@ autocmd BufWritePre *.py silent! Isort
 
 " Autoformat code on save
 autocmd BufWritePre *.css,*.html,*.js,*.py silent! Autoformat
-
-au BufNewFile,BufRead *.html set filetype=htmldjango
