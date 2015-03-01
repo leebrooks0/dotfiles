@@ -39,6 +39,7 @@ set smartindent
 set expandtab                       " Replace tabs with spaces
 set shiftwidth=4                    " Number of spaces when indenting and dedenting
 set tabstop=4                       " Spaces per tab
+set softtabstop=4                   " Backspace right through 'tab's
 set shiftround                      " Round indent to multiples of shiftwidth
 
 
@@ -57,8 +58,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'fisadev/vim-isort'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'kien/ctrlp.vim'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'mitsuhiko/jinja2'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
@@ -74,7 +75,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -114,9 +114,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'max:35'
-
-" indentLine
-let g:indentLine_char = '|'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -176,12 +173,6 @@ autocmd BufNewFile,BufRead COMMIT_EDITMSG,*.md setlocal spell
 " Python lines should not be longer than 79 chars
 autocmd BufReadPre *.py setlocal textwidth=79
 
-" Rainbow parentheses
-autocmd VimEnter * RainbowParenthesesToggle
-autocmd Syntax * RainbowParenthesesLoadRound
-autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
-
 " Strip all whitespace on save
 autocmd BufWritePre * silent! StripWhitespace
 
@@ -190,3 +181,5 @@ autocmd BufWritePre *.py silent! Isort
 
 " Autoformat code on save
 autocmd BufWritePre *.css,*.html,*.js,*.py silent! Autoformat
+
+au BufNewFile,BufRead *.html set filetype=htmldjango
