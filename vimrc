@@ -24,7 +24,7 @@ set noshowmode
 set noswapfile
 set nowritebackup
 set number
-set scrolloff=7                   " Lines above and below cursor when scrolling
+set scrolloff=10                  " Lines above and below cursor when scrolling
 set shell=/bin/bash
 set textwidth=80
 set wildmenu
@@ -46,6 +46,7 @@ set expandtab                       " Replace tabs with spaces
 set shiftwidth=4                    " Number of spaces when indenting and dedenting
 set tabstop=4                       " Spaces per tab
 set shiftround                      " Round indent to multiples of shiftwidth
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -106,6 +107,9 @@ let g:syntastic_warning_symbol = '▲'
 " Molokai
 colorscheme molokai
 let g:rehash256 = 1
+" Highlights don't play well with 'cursorline'
+highlight clear SpellBad
+highlight SpellBad cterm=underline ctermfg=red
 
 " Ctrl-P
 let g:ctrlp_extensions = ['buffertag']
@@ -155,8 +159,11 @@ nnoremap <CR> :nohlsearch<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Show spelling errors with Git commit messages and Markdown
+autocmd BufNewFile,BufRead COMMIT_EDITMSG,*.md setlocal spell
+
 " Python lines should not be longer than 79 chars
-autocmd bufreadpre *.py setlocal textwidth=79
+autocmd BufReadPre *.py setlocal textwidth=79
 
 " Rainbow parentheses
 autocmd VimEnter * RainbowParenthesesToggle
