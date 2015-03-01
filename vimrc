@@ -13,7 +13,7 @@ set autoread                      " Autoread files when externally updated
 set background=dark
 set backspace=indent,eol,start    " Backspace like you would expect
 set clipboard=unnamedplus         " Use the system clipboard for copy and paste
-set colorcolumn=+1
+set colorcolumn=+0
 set cursorline
 set encoding=utf-8
 set foldmethod=syntax
@@ -26,6 +26,7 @@ set nowritebackup
 set number
 set scrolloff=7                   " Lines above and below cursor when scrolling
 set shell=/bin/bash
+set textwidth=80
 set wildmenu
 set wildmode=list:longest,full
 
@@ -54,16 +55,19 @@ set shiftround                      " Round indent to multiples of shiftwidth
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
 Plug 'Chiel92/vim-autoformat'
 Plug 'davidhalter/jedi-vim'
 Plug 'fisadev/vim-isort'
-Plug 'jiangmiao/auto-pairs'
+Plug 'hynek/vim-python-pep8-indent'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'myusuf3/numbers.vim'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'Raimondi/delimitMate'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup'
 Plug 'scrooloose/syntastic'
@@ -71,6 +75,7 @@ Plug 'spolu/dwm.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tomasr/molokai'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -89,11 +94,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set ttimeoutlen=50
 let g:airline_theme='dark'
-let g:airline#extensions#branch#displayed_head_limit = 30
 
  " Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = '▲'
 
 " Molokai
 colorscheme molokai
@@ -147,6 +155,9 @@ nnoremap <CR> :nohlsearch<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Python lines should not be longer than 79 chars
+autocmd bufreadpre *.py setlocal textwidth=79
+
 " Rainbow parentheses
 autocmd VimEnter * RainbowParenthesesToggle
 autocmd Syntax * RainbowParenthesesLoadRound
@@ -154,13 +165,10 @@ autocmd Syntax * RainbowParenthesesLoadSquare
 autocmd Syntax * RainbowParenthesesLoadBraces
 
 " Strip all whitespace on save
-autocmd BufWrite * :%s/\s\+$//e
+autocmd BufWritePre * silent! StripWhitespace
 
 " Autosort Python imports on save
 autocmd BufWritePre *.py silent! Isort
 
 " Autoformat code on save
 autocmd BufWritePre *.css,*.html,*.js,*.py silent! Autoformat
-
-autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
-
