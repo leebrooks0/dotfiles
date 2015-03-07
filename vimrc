@@ -18,6 +18,7 @@ set cursorline
 set encoding=utf-8
 set history=200
 set laststatus=2                  " Always show statusline
+set mouse=a
 set noshowmode
 set noswapfile
 set nowrap
@@ -54,11 +55,15 @@ set splitright
 call plug#begin('~/.vim/plugged')
 
 Plug 'ap/vim-css-color'
+Plug 'benmills/vimux'
 Plug 'bling/vim-airline'
+Plug 'bps/vim-textobj-python'
 Plug 'Chiel92/vim-autoformat'
 Plug 'davidhalter/jedi-vim'
 Plug 'fisadev/vim-isort'
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'janko-m/vim-test'
+Plug 'kana/vim-textobj-user'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'majutsushi/tagbar'
@@ -117,14 +122,19 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'max:35'
 
+" test.vim
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+let g:test#strategy = 'vimux'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Ag
-nnoremap <leader>a :Ag<space>
 
 " Shift key is effort...
 nnoremap ; :
@@ -154,7 +164,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " EasyMotion
 " Remap default binding to single <leader>
-map <Leader> <Plug>(easymotion-prefix)
+map , <Plug>(easymotion-prefix)
 " 2 character search
 map s <Plug>(easymotion-s2)
 map t <Plug>(easymotion-t2)
@@ -163,10 +173,10 @@ map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 " Easier hjkl
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+map ,l <Plug>(easymotion-lineforward)
+map ,j <Plug>(easymotion-j)
+map ,k <Plug>(easymotion-k)
+map ,h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " Keep cursor column for jk
 
 " Open Ranger to manage files

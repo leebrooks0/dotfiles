@@ -7,8 +7,8 @@ set fish_theme bobthefish
 set fish_plugins extract python
 . $fish_path/oh-my-fish.fish
 
-# Use 256 colours
-set -x TERM xterm-256color
+# Use 256 colours AND play nicely with Tmux
+set -x TERM screen-256color
 
 # pyenv
 set -x PYENV_ROOT "$HOME/.pyenv"
