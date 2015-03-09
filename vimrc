@@ -43,7 +43,6 @@ set softtabstop=4                   " Backspace right through 'tab's
 set shiftround                      " Round indent to multiples of shiftwidth
 
 " More natural window splitting
-set splitbelow
 set splitright
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -54,34 +53,56 @@ set splitright
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'ap/vim-css-color'
-Plug 'benmills/vimux'
+" Aesthetics
+Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
-Plug 'bps/vim-textobj-python'
-Plug 'Chiel92/vim-autoformat'
-Plug 'davidhalter/jedi-vim'
-Plug 'fisadev/vim-isort'
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'janko-m/vim-test'
-Plug 'kana/vim-textobj-user'
+
+" General
+Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'majutsushi/tagbar'
-Plug 'mitsuhiko/jinja2'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-commentary'
+Plug 'Lokaltog/vim-easymotion'
+
+" Text Objects
+Plug 'kana/vim-textobj-user'
+Plug 'bps/vim-textobj-python'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-line'
+Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-indent'
+Plug 'lucapette/vim-textobj-underscore'
+
+" Utilities
+Plug 'Chiel92/vim-autoformat'
+Plug 'Raimondi/delimitMate'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
+Plug 'rking/ag.vim'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Python
+Plug 'davidhalter/jedi-vim'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'fisadev/vim-isort'
+Plug 'mitsuhiko/jinja2'
+
+" Web
+Plug 'rstacruz/sparkup'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'Raimondi/delimitMate'
-Plug 'rking/ag.vim'
-Plug 'rstacruz/sparkup'
-Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'tomasr/molokai'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
+Plug 'ap/vim-css-color'
+
+" Other Languages
+
+" Testing
+Plug 'benmills/vimux'
+Plug 'janko-m/vim-test'
 
 call plug#end()
 
@@ -129,6 +150,16 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let g:test#strategy = 'vimux'
+
+" textobj-comment
+" Don't interfere with Python text objects...
+let g:textobj_comment_no_default_key_mappings = 1
+xmap ax <Plug>(textobj-comment-a)
+omap ax <Plug>(textobj-comment-a)
+xmap ix <Plug>(textobj-comment-i)
+omap ix <Plug>(textobj-comment-i)
+xmap aX <Plug>(textobj-comment-big-a)
+omap aX <Plug>(textobj-comment-a)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
