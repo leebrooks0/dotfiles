@@ -85,12 +85,14 @@ Plug 'rking/ag.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/gitv'
 
 " Python
 Plug 'davidhalter/jedi-vim'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'fisadev/vim-isort'
 Plug 'mitsuhiko/jinja2'
+Plug 'alfredodeza/coveragepy.vim'
 
 " Web
 Plug 'rstacruz/sparkup'
