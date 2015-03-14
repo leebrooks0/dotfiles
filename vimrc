@@ -58,6 +58,7 @@ Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
 
 " General
+Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
@@ -98,9 +99,11 @@ Plug 'alfredodeza/coveragepy.vim'
 Plug 'rstacruz/sparkup'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'marijnh/tern_for_vim'
 Plug 'ap/vim-css-color'
 
 " Other Languages
+Plug 'suan/vim-instant-markdown'
 
 " Testing
 Plug 'benmills/vimux'
@@ -122,6 +125,9 @@ let g:airline_theme='dark'
 
 " EasyMotion
 let g:EasyMotion_smartcase = 1
+
+" Jedi, only want refactoring support as YCM handles code completion
+let g:jedi#completions_enabled = 0
 
  " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -201,6 +207,7 @@ map , <Plug>(easymotion-prefix)
 " 2 character search
 map s <Plug>(easymotion-s2)
 map t <Plug>(easymotion-t2)
+map T <Plug>(easymotion-T2)
 " n character search
 map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
@@ -226,6 +233,9 @@ nmap <silent> <leader>b :TagbarOpenAutoClose<CR>
 
 " Show spelling errors with Git commit messages and Markdown
 autocmd BufNewFile,BufRead COMMIT_EDITMSG,*.md setlocal spell
+
+" .md files should be detected as Markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " Python lines should not be longer than 79 chars
 autocmd BufReadPre *.py setlocal textwidth=79
