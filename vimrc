@@ -104,6 +104,7 @@ Plug 'ap/vim-css-color'
 
 " Other Languages
 Plug 'suan/vim-instant-markdown'
+Plug 'exu/pgsql.vim'
 
 " Testing
 Plug 'benmills/vimux'
