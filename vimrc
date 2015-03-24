@@ -59,6 +59,7 @@ Plug 'bling/vim-airline'
 " General
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'majutsushi/tagbar'
@@ -80,7 +81,6 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-eunuch'
 Plug 'rking/ag.vim'
 
 " Git
@@ -169,6 +169,12 @@ omap ix <Plug>(textobj-comment-i)
 xmap aX <Plug>(textobj-comment-big-a)
 omap aX <Plug>(textobj-comment-a)
 
+" NERDTree
+let g:nerdtree_tabs_open_on_console_startup = 1
+let NERDTreeShowHidden = 1
+let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.git$', '\~$']
+let NERDAutoDeleteBuffer = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Mappings
@@ -212,15 +218,9 @@ map T <Plug>(easymotion-T2)
 map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
-" Easier hjkl
-" map ,l <Plug>(easymotion-lineforward)
-" map ,j <Plug>(easymotion-j)
-" map ,k <Plug>(easymotion-k)
-" map ,h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " Keep cursor column for jk
 
-" Open Ranger to manage files
-nnoremap <Leader>r :!ranger<CR>
+nnoremap <Leader>e :NERDTreeTabsFind<CR>
 
 " Tagbar
 nmap <silent> <leader>b :TagbarOpenAutoClose<CR>
