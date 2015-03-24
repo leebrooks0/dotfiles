@@ -86,7 +86,6 @@ Plug 'rking/ag.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'gregsexton/gitv'
 
 " Python
 Plug 'davidhalter/jedi-vim'
@@ -146,6 +145,7 @@ highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=red
 
 " Ctrl-P
+let g:ctrlp_show_hidden = 1
 let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
