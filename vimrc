@@ -213,10 +213,10 @@ map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 " Easier hjkl
-map ,l <Plug>(easymotion-lineforward)
-map ,j <Plug>(easymotion-j)
-map ,k <Plug>(easymotion-k)
-map ,h <Plug>(easymotion-linebackward)
+" map ,l <Plug>(easymotion-lineforward)
+" map ,j <Plug>(easymotion-j)
+" map ,k <Plug>(easymotion-k)
+" map ,h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " Keep cursor column for jk
 
 " Open Ranger to manage files
