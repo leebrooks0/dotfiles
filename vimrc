@@ -13,7 +13,7 @@ set autoread                      " Autoread files when externally updated
 set background=dark
 set backspace=indent,eol,start    " Backspace like you would expect
 set clipboard=unnamedplus         " Use the system clipboard for copy and paste
-set colorcolumn=+0
+set colorcolumn=80
 set cursorline
 set encoding=utf-8
 set history=200
@@ -25,7 +25,6 @@ set nowritebackup
 set number
 set scrolloff=10                  " Lines above and below cursor when scrolling
 set shell=/bin/bash
-set textwidth=80
 set wildmenu
 set wildmode=list:longest,full
 
@@ -220,6 +219,7 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 let g:EasyMotion_startofline = 0 " Keep cursor column for jk
 
+" NERDTreeTabs
 nnoremap <Leader>e :NERDTreeTabsFind<CR>
 
 " Tagbar
@@ -238,7 +238,7 @@ autocmd BufNewFile,BufRead COMMIT_EDITMSG,*.md setlocal spell
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " Python lines should not be longer than 79 chars
-autocmd BufReadPre *.py setlocal textwidth=79
+autocmd BufReadPre *.py setlocal colorcolumn=79
 
 " Strip all whitespace on save
 autocmd BufWritePre * silent! StripWhitespace
