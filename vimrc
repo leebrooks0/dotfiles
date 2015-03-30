@@ -3,8 +3,6 @@
 """ Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set nocompatible
 syntax on
 filetype plugin indent on
 let mapleader = ' '
@@ -18,7 +16,6 @@ set cursorline
 set encoding=utf-8
 set history=200
 set laststatus=2                  " Always show statusline
-set noshowmode
 set noswapfile
 set nowrap
 set nowritebackup
@@ -28,9 +25,11 @@ set shell=/bin/bash
 set wildmenu
 set wildmode=list:longest,full
 
+" Searching
+set incsearch
+
 " Indentation
 set autoindent
-set copyindent
 set smartindent
 
 " Tabs and spaces
@@ -53,7 +52,6 @@ call plug#begin('~/.vim/plugged')
 
 " Aesthetics
 Plug 'tomasr/molokai'
-Plug 'bling/vim-airline'
 
 " General
 Plug 'Valloric/YouCompleteMe'
@@ -64,14 +62,12 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
-Plug 'Lokaltog/vim-easymotion'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
-Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-indent'
 Plug 'lucapette/vim-textobj-underscore'
 
@@ -87,10 +83,7 @@ Plug 'tpope/vim-fugitive'
 
 " Python
 Plug 'davidhalter/jedi-vim'
-Plug 'hynek/vim-python-pep8-indent'
 Plug 'fisadev/vim-isort'
-Plug 'mitsuhiko/jinja2'
-Plug 'alfredodeza/coveragepy.vim'
 
 " Web
 Plug 'rstacruz/sparkup'
@@ -115,15 +108,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-set ttimeoutlen=50
-let g:airline_theme='dark'
-
-" EasyMotion
-let g:EasyMotion_smartcase = 1
-
 " Jedi, only want refactoring support as YCM handles code completion
 let g:jedi#completions_enabled = 0
 
@@ -147,7 +131,7 @@ let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_match_window = 'max:35'
+let g:ctrlp_match_window = 'max:40'
 
 " test.vim
 nmap <silent> <leader>t :TestNearest<CR>
@@ -156,16 +140,6 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let g:test#strategy = 'vimux'
-
-" textobj-comment
-" Don't interfere with Python text objects...
-let g:textobj_comment_no_default_key_mappings = 1
-xmap ax <Plug>(textobj-comment-a)
-omap ax <Plug>(textobj-comment-a)
-xmap ix <Plug>(textobj-comment-i)
-omap ix <Plug>(textobj-comment-i)
-xmap aX <Plug>(textobj-comment-big-a)
-omap aX <Plug>(textobj-comment-a)
 
 " NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 1
@@ -179,13 +153,13 @@ let NERDAutoDeleteBuffer = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" CtrlP
+nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>f :CtrlPFunky<cr>
+
 " Shift key is effort...
 nnoremap ; :
 vnoremap ; :
-
-" Retain selection when indenting
-vnoremap < <gv
-vnoremap > >gv
 
 " Share tab mappings with Ranger
 nnoremap <leader>1 1gt
@@ -205,25 +179,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" EasyMotion
-" Remap default binding to single <leader>
-map , <Plug>(easymotion-prefix)
-" 2 character search
-map s <Plug>(easymotion-s2)
-map t <Plug>(easymotion-t2)
-map T <Plug>(easymotion-T2)
-" n character search
-map  / <Plug>(easymotion-sn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-map ,l <Plug>(easymotion-lineforward)
-map ,j <Plug>(easymotion-j)
-map ,k <Plug>(easymotion-k)
-map ,h <Plug>(easymotion-linebackward)
-let g:EasyMotion_startofline = 0 " Keep cursor column for jk
-
 " NERDTreeTabs
-nnoremap <Leader>e :NERDTreeTabsFind<CR>
+nnoremap <Leader>n :NERDTreeTabsFind<CR>
 
 " Tagbar
 nmap <silent> <leader>b :TagbarOpenAutoClose<CR>
