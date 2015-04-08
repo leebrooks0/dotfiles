@@ -27,6 +27,8 @@ set wildmode=list:longest,full
 
 " Searching
 set incsearch
+set ignorecase
+set smartcase
 
 " Indentation
 set autoindent
@@ -59,7 +61,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
 
@@ -67,37 +68,27 @@ Plug 'tpope/vim-commentary'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
 Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-indent'
-Plug 'lucapette/vim-textobj-underscore'
 
 " Utilities
 Plug 'Chiel92/vim-autoformat'
-Plug 'Raimondi/delimitMate'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'tpope/vim-surround'
 Plug 'rking/ag.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
 
-" Python
-Plug 'davidhalter/jedi-vim'
-Plug 'fisadev/vim-isort'
-
 " Web
 Plug 'rstacruz/sparkup'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'marijnh/tern_for_vim'
-Plug 'ap/vim-css-color'
 
-" Other Languages
+" Languages
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
 Plug 'suan/vim-instant-markdown'
 Plug 'exu/pgsql.vim'
+Plug 'ap/vim-css-color'
 
 " Testing
-Plug 'benmills/vimux'
 Plug 'janko-m/vim-test'
 
 call plug#end()
@@ -107,9 +98,6 @@ call plug#end()
 """ Plugin Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Jedi, only want refactoring support as YCM handles code completion
-let g:jedi#completions_enabled = 0
 
  " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -134,12 +122,12 @@ let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'max:40'
 
 " test.vim
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
+let test#python#runner = 'pytest'
+nmap <silent> <leader>n :TestNearest<CR>
+nmap <silent> <leader>t :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
-let g:test#strategy = 'vimux'
+nmap <silent> <leader>v :TestVisit<CR>
 
 " NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 1
@@ -174,16 +162,13 @@ nnoremap <leader>9 9gt
 nnoremap <C-T> :tabnew<CR>
 
 " Easier window navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <leader>J <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
 
 " NERDTreeTabs
-nnoremap <Leader>n :NERDTreeTabsFind<CR>
-
-" Tagbar
-nmap <silent> <leader>b :TagbarOpenAutoClose<CR>
+nnoremap <Leader>e :NERDTreeTabsFind<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -202,9 +187,6 @@ autocmd BufReadPre *.py setlocal colorcolumn=79
 
 " Strip all whitespace on save
 autocmd BufWritePre * silent! StripWhitespace
-
-" Autosort Python imports on save
-autocmd BufWritePre *.py silent! Isort
 
 " Autoformat code on save
 autocmd BufWritePre *.css,*.html,*.js,*.py silent! Autoformat
