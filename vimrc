@@ -1,5 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -53,7 +51,7 @@ set splitright
 call plug#begin('~/.vim/plugged')
 
 " Aesthetics
-Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
 
 " General
 Plug 'Valloric/YouCompleteMe'
@@ -63,6 +61,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
+Plug 'osyo-manga/vim-over'
+Plug 'Shougo/neocomplete'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
@@ -104,12 +104,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = '▲'
 
-" Molokai
-colorscheme molokai
-let g:rehash256 = 1
+" Colorschme
+colorscheme jellybeans
 " Highlights don't play well with 'cursorline'
 highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=red
@@ -162,13 +159,16 @@ nnoremap <leader>9 9gt
 nnoremap <C-T> :tabnew<CR>
 
 " Easier window navigation
-nnoremap <leader>J <C-W><C-J>
+nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
 
 " NERDTreeTabs
 nnoremap <Leader>e :NERDTreeTabsFind<CR>
+
+" Over
+noremap <leader>o :OverCommandLine<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
