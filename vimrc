@@ -63,6 +63,7 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-over'
 
 " Text Objects
@@ -108,6 +109,7 @@ set ttimeoutlen=50
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let delimitMate_expand_inside_quotes = 1
+let delimitMate_balance_matchpairs = 1
 
  " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -153,8 +155,8 @@ nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 
 " Shift key is effort...
-nnoremap ; :
-vnoremap ; :
+noremap ; :
+noremap : ;
 
 " Share tab mappings with Ranger
 nnoremap <leader>1 1gt
