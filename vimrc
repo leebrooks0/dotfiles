@@ -52,6 +52,7 @@ call plug#begin('~/.vim/plugged')
 
 " Aesthetics
 Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-airline'
 
 " General
 Plug 'Valloric/YouCompleteMe'
@@ -62,7 +63,6 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'osyo-manga/vim-over'
-Plug 'Shougo/neocomplete'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
@@ -98,6 +98,10 @@ call plug#end()
 """ Plugin Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Airline
+let g:airline_powerline_fonts = 1
+set ttimeoutlen=50
 
  " Syntastic
 let g:syntastic_always_populate_loc_list = 1
