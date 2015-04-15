@@ -55,6 +55,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'bling/vim-airline'
 
 " General
+Plug 'vim-scripts/vim-auto-save'
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -66,6 +67,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-over'
 Plug 'PeterRincker/vim-argumentative'
+Plug 'Lokaltog/vim-easymotion'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
@@ -108,13 +110,27 @@ call plug#end()
 let g:airline_powerline_fonts = 1
 set ttimeoutlen=50
 
+" AutoSave
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 1
+
 " DelimitMate
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let delimitMate_expand_inside_quotes = 1
 let delimitMate_balance_matchpairs = 1
 
- " Syntastic
+" EasyMotion
+map , <Plug>(easymotion-prefix)
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+map / <Plug>(easymotion-sn)
+let g:EasyMotion_smartcase = 1
+omap n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
+
+" Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -186,7 +202,7 @@ nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
 
 " NERDTreeTabs
-nnoremap <Leader>e :NERDTreeTabsFind<CR>
+nnoremap <Leader>e :NERDTreeFind<CR>
 
 " Over
 noremap <leader>o :OverCommandLine<CR>
