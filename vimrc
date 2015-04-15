@@ -70,6 +70,8 @@ Plug 'osyo-manga/vim-over'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
 Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
 
 " Utilities
 Plug 'Chiel92/vim-autoformat'
@@ -149,6 +151,10 @@ let NERDAutoDeleteBuffer = 1
 """ Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" <esc> is miles away...
+inoremap jk <esc>
+inoremap <esc> <nop>
 
 " CtrlP
 nnoremap <leader>p :CtrlP<cr>
