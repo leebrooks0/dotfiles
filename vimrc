@@ -65,6 +65,7 @@ Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-over'
+Plug 'PeterRincker/vim-argumentative'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
@@ -154,7 +155,9 @@ let NERDAutoDeleteBuffer = 1
 
 " <esc> is miles away...
 inoremap jk <esc>
-inoremap <esc> <nop>
+
+" Easily get back to last file edited, good for TDD...
+nmap <leader><leader> <C-^>
 
 " CtrlP
 nnoremap <leader>p :CtrlP<cr>
