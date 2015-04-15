@@ -62,6 +62,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
+Plug 'Raimondi/delimitMate'
 Plug 'osyo-manga/vim-over'
 
 " Text Objects
@@ -102,6 +103,11 @@ call plug#end()
 " Airline
 let g:airline_powerline_fonts = 1
 set ttimeoutlen=50
+
+" DelimitMate
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+let delimitMate_expand_inside_quotes = 1
 
  " Syntastic
 let g:syntastic_always_populate_loc_list = 1
