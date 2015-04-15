@@ -163,6 +163,8 @@ let NERDTreeShowHidden = 1
 let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.git$', '\~$']
 let NERDAutoDeleteBuffer = 1
 
+" YCM
+let g:ycm_autoclose_preview_window_after_insertion = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Mappings
