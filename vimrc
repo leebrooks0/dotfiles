@@ -150,12 +150,11 @@ let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'max:40'
 
 " test.vim
-let test#python#runner = 'pytest'
-nmap <silent> <leader>n :TestNearest<CR>
-nmap <silent> <leader>t :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>v :TestVisit<CR>
+nmap <leader>n :TestNearest<CR>
+nmap <leader>t :TestFile<CR>
+nmap <leader>a :TestSuite<CR>
+nmap <leader>l :TestLast<CR>
+nmap <leader>v :TestVisit<CR>
 
 " NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 1
