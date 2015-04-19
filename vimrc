@@ -30,12 +30,7 @@ set smartcase
 " Tabs and spaces
 set expandtab                       " Replace tabs with spaces
 set shiftwidth=4                    " Number of spaces when indenting and dedenting
-set tabstop=4                       " Spaces per tab
-set softtabstop=4                   " Backspace right through 'tab's
-set shiftround                      " Round indent to multiples of shiftwidth
-
-" More natural window splitting
-set splitright
+set softtabstop=4                       " Backspace right through 'tab's
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
