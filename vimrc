@@ -48,9 +48,7 @@ Plug 'bling/vim-airline'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
@@ -136,7 +134,6 @@ highlight SpellBad cterm=underline ctermfg=red
 let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
-let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'max:40'
 
 " test.vim
@@ -147,7 +144,6 @@ nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
 
 " NERDTree
-let g:nerdtree_tabs_open_on_console_startup = 1
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.git$', '\~$']
 let NERDAutoDeleteBuffer = 1
@@ -168,7 +164,6 @@ nnoremap <leader><leader> <C-^>
 
 " CtrlP
 nnoremap <leader>p :CtrlP<cr>
-nnoremap <leader>f :CtrlPFunky<cr>
 
 " Shift key is effort...
 noremap ; :
@@ -192,8 +187,9 @@ nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
 
-" NERDTreeTabs
-nnoremap <Leader>e :NERDTreeFind<CR>
+" NERDTree
+nnoremap <F9> :NERDTreeFind<CR>
+nnoremap <F10> :NERDTreeToggle<CR>
 
 " Over
 noremap <leader>o :OverCommandLine<CR>
