@@ -55,6 +55,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-over'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'szw/vim-tags'
+Plug 'spolu/dwm.vim'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
@@ -130,15 +132,15 @@ highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=red
 
 " Ctrl-P
-let g:ctrlp_extensions = ['buffertag']
+let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window = 'max:40'
 
 " test.vim
 nnoremap <leader>n :TestNearest<CR>
-nnoremap <leader>t :TestFile<CR>
-nnoremap <leader>a :TestSuite<CR>
+nnoremap <leader>f :TestFile<CR>
+nnoremap <leader>s :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
 let test#strategy = "neovim"
@@ -164,6 +166,8 @@ nnoremap <leader><leader> <C-^>
 
 " CtrlP
 nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>b :CtrlPBufTag<cr>
 
 " Shift key is effort...
 noremap ; :
@@ -180,12 +184,6 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <C-T> :tabnew<CR>
-
-" Easier window navigation
-nnoremap <leader>j <C-W><C-J>
-nnoremap <leader>k <C-W><C-K>
-nnoremap <leader>l <C-W><C-L>
-nnoremap <leader>h <C-W><C-H>
 
 " NERDTree
 nnoremap <F9> :NERDTreeFind<CR>
