@@ -27,10 +27,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Indentation
-set autoindent
-set smartindent
-
 " Tabs and spaces
 set expandtab                       " Replace tabs with spaces
 set shiftwidth=4                    " Number of spaces when indenting and dedenting
