@@ -10,7 +10,6 @@ set backspace=indent,eol,start    " Backspace like you would expect
 set clipboard=unnamedplus         " Use the system clipboard for copy and paste
 set colorcolumn=80
 set cursorline
-set encoding=utf-8
 set history=200
 set laststatus=2                  " Always show statusline
 set noswapfile
