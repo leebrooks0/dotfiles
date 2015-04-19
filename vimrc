@@ -6,7 +6,6 @@ filetype plugin indent on
 let mapleader = ' '
 
 set autoread                      " Autoread files when externally updated
-set background=dark
 set backspace=indent,eol,start    " Backspace like you would expect
 set clipboard=unnamedplus         " Use the system clipboard for copy and paste
 set colorcolumn=80
@@ -150,11 +149,11 @@ let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'max:40'
 
 " test.vim
-nmap <leader>n :TestNearest<CR>
-nmap <leader>t :TestFile<CR>
-nmap <leader>a :TestSuite<CR>
-nmap <leader>l :TestLast<CR>
-nmap <leader>v :TestVisit<CR>
+nnoremap <leader>n :TestNearest<CR>
+nnoremap <leader>t :TestFile<CR>
+nnoremap <leader>a :TestSuite<CR>
+nnoremap <leader>l :TestLast<CR>
+nnoremap <leader>v :TestVisit<CR>
 
 " NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 1
@@ -174,7 +173,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 inoremap jk <esc>
 
 " Easily get back to last file edited, good for TDD...
-nmap <leader><leader> <C-^>
+nnoremap <leader><leader> <C-^>
 
 " CtrlP
 nnoremap <leader>p :CtrlP<cr>
@@ -225,6 +224,3 @@ autocmd BufReadPre *.py setlocal colorcolumn=79
 
 " Strip all whitespace on save
 autocmd BufWritePre * silent! StripWhitespace
-
-" Autoformat code on save
-autocmd BufWritePre *.css,*.html,*.js,*.py silent! Autoformat
