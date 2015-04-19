@@ -29,7 +29,7 @@ set smartcase
 " Tabs and spaces
 set expandtab                       " Replace tabs with spaces
 set shiftwidth=4                    " Number of spaces when indenting and dedenting
-set softtabstop=4                       " Backspace right through 'tab's
+set softtabstop=4                   " Backspace right through 'tab's
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -120,7 +120,6 @@ omap n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 
 " Syntastic
-let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -139,8 +138,8 @@ let g:ctrlp_match_window = 'max:40'
 
 " test.vim
 nnoremap <leader>n :TestNearest<CR>
-nnoremap <leader>f :TestFile<CR>
-nnoremap <leader>s :TestSuite<CR>
+nnoremap <leader>t :TestFile<CR>
+nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
 let test#strategy = "neovim"
@@ -158,6 +157,9 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" AutoFormat
+nnoremap <leader>f :Autoformat<cr>
+
 " <esc> is miles away...
 inoremap jk <esc>
 
@@ -166,7 +168,7 @@ nnoremap <leader><leader> <C-^>
 
 " CtrlP
 nnoremap <leader>p :CtrlP<cr>
-nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>b :CtrlPBufTag<cr>
 
 " Shift key is effort...
@@ -191,6 +193,9 @@ nnoremap <F10> :NERDTreeToggle<CR>
 
 " Over
 noremap <leader>o :OverCommandLine<CR>
+
+" Syntastic
+nnoremap <leader>s :SyntasticCheck<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
