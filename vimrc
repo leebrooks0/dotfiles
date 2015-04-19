@@ -142,6 +142,7 @@ nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
+let test#strategy = "neovim"
 
 " NERDTree
 let NERDTreeShowHidden = 1
