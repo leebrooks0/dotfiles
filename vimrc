@@ -5,6 +5,7 @@ syntax on
 filetype plugin indent on
 let mapleader = ' '
 
+set autoindent
 set autoread                      " Autoread files when externally updated
 set backspace=indent,eol,start    " Backspace like you would expect
 set clipboard=unnamedplus         " Use the system clipboard for copy and paste
@@ -12,6 +13,7 @@ set colorcolumn=80
 set cursorline
 set history=200
 set laststatus=2                  " Always show statusline
+set noshowmode
 set noswapfile
 set nowrap
 set nowritebackup
@@ -29,6 +31,7 @@ set smartcase
 " Tabs and spaces
 set expandtab                       " Replace tabs with spaces
 set shiftwidth=4                    " Number of spaces when indenting and dedenting
+set shiftround
 set softtabstop=4                   " Backspace right through 'tab's
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -46,7 +49,6 @@ Plug 'bling/vim-airline'
 " General
 Plug 'vim-scripts/vim-auto-save'
 Plug 'Valloric/YouCompleteMe'
-Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
@@ -80,7 +82,6 @@ Plug 'marijnh/tern_for_vim'
 " Languages
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
-Plug 'suan/vim-instant-markdown'
 Plug 'exu/pgsql.vim'
 Plug 'ap/vim-css-color'
 
@@ -142,12 +143,7 @@ nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
-let test#strategy = "neovim"
-
-" NERDTree
-let NERDTreeShowHidden = 1
-let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.git$', '\~$']
-let NERDAutoDeleteBuffer = 1
+" let test#strategy = "neovim"
 
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -186,10 +182,6 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <C-T> :tabnew<CR>
-
-" NERDTree
-nnoremap <F9> :NERDTreeFind<CR>
-nnoremap <F10> :NERDTreeToggle<CR>
 
 " Over
 noremap <leader>o :OverCommandLine<CR>
