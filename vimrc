@@ -143,7 +143,6 @@ nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
-" let test#strategy = "neovim"
 
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
