@@ -1,14 +1,11 @@
 """ Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on
-filetype plugin indent on
 let mapleader = ' '
 
 set autoindent
 set autoread                      " Autoread files when externally updated
 set backspace=indent,eol,start    " Backspace like you would expect
-set clipboard=unnamedplus         " Use the system clipboard for copy and paste
 set colorcolumn=80
 set cursorline
 set history=200
@@ -55,7 +52,6 @@ Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'osyo-manga/vim-over'
-Plug 'PeterRincker/vim-argumentative'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'szw/vim-tags'
 Plug 'spolu/dwm.vim'
@@ -64,10 +60,11 @@ Plug 'spolu/dwm.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
 Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
 
 " Utilities
+Plug 'kshenoy/vim-signature'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'tpope/vim-eunuch'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim'
@@ -145,6 +142,7 @@ nnoremap <leader>v :TestVisit<CR>
 
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Mappings
