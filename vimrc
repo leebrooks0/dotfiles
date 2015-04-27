@@ -41,6 +41,7 @@ call plug#begin('~/.vim/plugged')
 
 " Aesthetics
 Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-bufferline'
 Plug 'bling/vim-airline'
 
 " General
@@ -92,6 +93,8 @@ call plug#end()
 """ Plugin Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Bufferline
+let g:bufferline_echo = 0
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -166,18 +169,6 @@ nnoremap <leader>b :CtrlPBufTag<cr>
 " Shift key is effort...
 noremap ; :
 noremap : ;
-
-" Share tab mappings with Ranger
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
-nnoremap <C-T> :tabnew<CR>
 
 " Over
 noremap <leader>o :OverCommandLine<CR>
