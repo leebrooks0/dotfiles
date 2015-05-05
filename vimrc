@@ -10,11 +10,11 @@ set colorcolumn=80
 set cursorline
 set history=200
 set laststatus=2                  " Always show statusline
-set noshowmode
 set noswapfile
 set nowrap
 set nowritebackup
 set number
+set ruler
 set scrolloff=10                  " Lines above and below cursor when scrolling
 set shell=/bin/bash
 set wildmenu
@@ -41,18 +41,13 @@ call plug#begin('~/.vim/plugged')
 
 " Aesthetics
 Plug 'nanotech/jellybeans.vim'
-Plug 'bling/vim-bufferline'
-Plug 'bling/vim-airline'
 
 " General
 Plug 'vim-scripts/vim-auto-save'
 Plug 'Valloric/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'osyo-manga/vim-over'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'szw/vim-tags'
 Plug 'spolu/dwm.vim'
@@ -64,8 +59,6 @@ Plug 'kana/vim-textobj-entire'
 
 " Utilities
 Plug 'kshenoy/vim-signature'
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'tpope/vim-eunuch'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim'
@@ -93,12 +86,6 @@ call plug#end()
 """ Plugin Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Bufferline
-let g:bufferline_echo = 0
-
-" Airline
-let g:airline_powerline_fonts = 1
-set ttimeoutlen=50
 
 " AutoSave
 let g:auto_save = 1
@@ -119,10 +106,6 @@ map / <Plug>(easymotion-sn)
 let g:EasyMotion_smartcase = 1
 omap n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
-
-" Syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Colorschme
 colorscheme jellybeans
@@ -169,12 +152,6 @@ nnoremap <leader>b :CtrlPBufTag<cr>
 " Shift key is effort...
 noremap ; :
 noremap : ;
-
-" Over
-noremap <leader>o :OverCommandLine<CR>
-
-" Syntastic
-nnoremap <leader>s :SyntasticCheck<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
