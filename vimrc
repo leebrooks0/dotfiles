@@ -51,6 +51,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'szw/vim-tags'
 Plug 'spolu/dwm.vim'
+Plug 'benekastah/neomake'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
@@ -118,6 +119,7 @@ let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window = 'max:40'
+
 
 " test.vim
 nnoremap <leader>n :TestNearest<CR>
