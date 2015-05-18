@@ -74,7 +74,6 @@ Plug 'marijnh/tern_for_vim'
 " Languages
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
-Plug 'exu/pgsql.vim'
 Plug 'ap/vim-css-color'
 
 " Testing
