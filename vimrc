@@ -71,9 +71,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'rstacruz/sparkup'
 Plug 'marijnh/tern_for_vim'
 
+" Clojure
+Plug 'tpope/vim-fireplace'
+Plug 'luochen1990/rainbow'
+Plug 'vim-scripts/paredit.vim'
+
 " Languages
 Plug 'pangloss/vim-javascript'
-Plug 'othree/html5.vim'
 Plug 'ap/vim-css-color'
 
 " Testing
@@ -126,6 +130,9 @@ nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
+
+" Rainbow
+let g:rainbow_active = 1
 
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
