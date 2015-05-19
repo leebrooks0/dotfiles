@@ -114,6 +114,15 @@ let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window = 'max:40'
 
+" Neomake
+let g:neomake_error_sign = {
+            \ 'text': 'E>',
+            \ 'texthl': 'ErrorMsg',
+            \ }
+let g:neomake_warning_sign = {
+            \ 'text': 'W>',
+            \ 'texthl': 'WarningMsg',
+            \ }
 
 " test.vim
 nnoremap <leader>n :TestNearest<CR>
@@ -166,3 +175,6 @@ autocmd BufReadPre *.py setlocal colorcolumn=79
 
 " Strip all whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Run neomake on every save
+autocmd! BufWritePost * silent! Neomake
