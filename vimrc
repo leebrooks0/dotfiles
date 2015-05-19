@@ -61,24 +61,15 @@ Plug 'kana/vim-textobj-entire'
 " Utilities
 Plug 'kshenoy/vim-signature'
 Plug 'Chiel92/vim-autoformat'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
 
-" Web
-Plug 'rstacruz/sparkup'
-Plug 'marijnh/tern_for_vim'
-
 " Clojure
 Plug 'tpope/vim-fireplace'
 Plug 'luochen1990/rainbow'
 Plug 'vim-scripts/paredit.vim'
-
-" Languages
-Plug 'pangloss/vim-javascript'
-Plug 'ap/vim-css-color'
 
 " Testing
 Plug 'janko-m/vim-test'
@@ -146,9 +137,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " AutoFormat
 nnoremap <leader>f :Autoformat<cr>
 
-" <esc> is miles away...
-inoremap jk <esc>
-
 " Easily get back to last file edited, good for TDD...
 nnoremap <leader><leader> <C-^>
 
@@ -177,4 +165,4 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufReadPre *.py setlocal colorcolumn=79
 
 " Strip all whitespace on save
-autocmd BufWritePre * silent! StripWhitespace
+autocmd BufWritePre * :%s/\s\+$//e
