@@ -43,22 +43,16 @@ Plug 'nanotech/jellybeans.vim'
 
 " General
 Plug 'vim-scripts/vim-auto-save'
+Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'szw/vim-tags'
-Plug 'spolu/dwm.vim'
 Plug 'benekastah/neomake'
-
-" Utilities
-Plug 'kshenoy/vim-signature'
 Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
-
-" Git
-Plug 'tpope/vim-fugitive'
 
 " Clojure
 Plug 'tpope/vim-fireplace'
@@ -157,6 +151,15 @@ nnoremap cae ggdGi
 nnoremap dae ggdG
 nnoremap vae ggVG
 nnoremap yae ggyG
+
+" Neovim terminal
+tnoremap <esc> <C-\><C-n>
+
+" Easier window management
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
