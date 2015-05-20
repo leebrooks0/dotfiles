@@ -1,4 +1,3 @@
-""" Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ' '
@@ -52,11 +51,6 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'szw/vim-tags'
 Plug 'spolu/dwm.vim'
 Plug 'benekastah/neomake'
-
-" Text Objects
-Plug 'kana/vim-textobj-user'
-Plug 'bps/vim-textobj-python'
-Plug 'kana/vim-textobj-entire'
 
 " Utilities
 Plug 'kshenoy/vim-signature'
@@ -157,6 +151,12 @@ nnoremap <leader>b :CtrlPBufTag<cr>
 " Shift key is effort...
 noremap ; :
 noremap : ;
+
+" Fake text objects for entire buffer
+nnoremap cae ggdGi
+nnoremap dae ggdG
+nnoremap vae ggVG
+nnoremap yae ggyG
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
