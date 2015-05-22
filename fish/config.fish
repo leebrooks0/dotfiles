@@ -15,8 +15,8 @@ set -x PYENV_ROOT "$HOME/.pyenv"
 set -x PATH "$PYENV_ROOT/bin" $PATH
 status --is-interactive; and . (pyenv init -|psub)
 
-# Use Vim everywhere
-set -x EDITOR vim
+# Use Neovim everywhere
+set -x EDITOR nvim
 
 # Hide the fish greeting
 function fish_greeting
