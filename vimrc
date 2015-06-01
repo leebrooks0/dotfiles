@@ -10,7 +10,6 @@ set cursorline
 set history=200
 set laststatus=2                  " Always show statusline
 set noswapfile
-set nowrap
 set nowritebackup
 set number
 set ruler
@@ -49,14 +48,13 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'szw/vim-tags'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
 
 " Clojure
 Plug 'tpope/vim-fireplace'
-Plug 'luochen1990/rainbow'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'vim-scripts/paredit.vim'
 
 " Testing
@@ -80,6 +78,8 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let delimitMate_expand_inside_quotes = 1
 let delimitMate_balance_matchpairs = 1
+" Paredit makes this plugin redundant in Clojure
+let delimitMate_excluded_ft = 'clojure'
 
 " EasyMotion
 map , <Plug>(easymotion-prefix)
@@ -89,6 +89,9 @@ map / <Plug>(easymotion-sn)
 let g:EasyMotion_smartcase = 1
 omap n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
+
+" Fugitive
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Colorschme
 colorscheme jellybeans
@@ -119,8 +122,8 @@ nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
 
-" Rainbow
-let g:rainbow_active = 1
+" Rainbow Parentheses
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -143,14 +146,17 @@ nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>b :CtrlPBufTag<cr>
 
 " Shift key is effort...
-noremap ; :
-noremap : ;
+nnoremap <cr> :
 
 " Fake text objects for entire buffer
 nnoremap cae ggdGi
 nnoremap dae ggdG
 nnoremap vae ggVG
 nnoremap yae ggyG
+
+" Easier escape
+inoremap jj <esc>
+inoremap ff <esc>
 
 " Neovim terminal
 tnoremap <esc> <C-\><C-n>
@@ -176,8 +182,14 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 " Python lines should not be longer than 79 chars
 autocmd BufReadPre *.py setlocal colorcolumn=79
 
+" Automatically turn on rainbow parentheses
+autocmd BufRead * RainbowParentheses
+
 " Strip all whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Run neomake on every save
 autocmd! BufWritePost * silent! Neomake
+
+" Generate tags file
+autocmd! BufWritePost *.py,*.clj,*.cljs !ctags -R &
