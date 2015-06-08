@@ -10,6 +10,7 @@ set cursorline
 set history=200
 set laststatus=2                  " Always show statusline
 set noswapfile
+set nowrap
 set nowritebackup
 set number
 set ruler
@@ -146,7 +147,9 @@ nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>b :CtrlPBufTag<cr>
 
 " Shift key is effort...
-nnoremap <cr> :
+noremap <cr> :
+" Restore <cr> in the quickfix buffer only
+autocmk BufRead quickfix nnoremap <buffer> <cr> <cr>
 
 " Fake text objects for entire buffer
 nnoremap cae ggdGi
@@ -156,7 +159,7 @@ nnoremap yae ggyG
 
 " Easier escape
 inoremap jj <esc>
-inoremap ff <esc>
+inoremap jk <esc>
 
 " Neovim terminal
 tnoremap <esc> <C-\><C-n>
