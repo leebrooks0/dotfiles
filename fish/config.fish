@@ -15,7 +15,7 @@ set -x PATH "$PYENV_ROOT/bin" $PATH
 status --is-interactive; and . (pyenv init -|psub)
 
 # nvm
-nvm use stable > /dev/null
+# nvm use stable > /dev/null
 
 # Use Neovim everywhere
 set -x EDITOR nvim

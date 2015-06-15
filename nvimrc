@@ -149,7 +149,7 @@ nnoremap <leader>b :CtrlPBufTag<cr>
 " Shift key is effort...
 noremap <cr> :
 " Restore <cr> in the quickfix buffer only
-autocmk BufRead quickfix nnoremap <buffer> <cr> <cr>
+autocmd BufRead quickfix nnoremap <buffer> <cr> <cr>
 
 " Fake text objects for entire buffer
 nnoremap cae ggdGi
