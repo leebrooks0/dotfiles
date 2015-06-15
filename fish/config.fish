@@ -27,3 +27,6 @@ end
 # Hide the right prompt
 function fish_right_prompt
 end
+
+# Load shell aliases
+. ~/.config/fish/aliases.fish
