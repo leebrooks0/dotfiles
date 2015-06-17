@@ -1,4 +1,18 @@
-tags
+# Images
+*.gif
+*.jpg
+*.png
+*.svg
+
+# Fonts
+*.eot
+*.otf
+*.woff*
+*.ttf
+
+# General
+bower_components
 .git/
-bower_components/
-node_modules/
+node_modules
+tags
+vendor
