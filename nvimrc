@@ -45,10 +45,9 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
@@ -82,15 +81,6 @@ let delimitMate_balance_matchpairs = 1
 " Paredit makes this plugin redundant in Clojure
 let delimitMate_excluded_ft = 'clojure'
 
-" EasyMotion
-map , <Plug>(easymotion-prefix)
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
-map / <Plug>(easymotion-sn)
-let g:EasyMotion_smartcase = 1
-omap n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
-
 " Fugitive
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
@@ -105,6 +95,9 @@ let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window = 'max:40'
+" To find out what tag kinds are recognised for the specific language:
+" ctags --list-kinds=language|all
+let g:ctrlp_buftag_types = { 'scss': '--scss-types=citmv' }
 
 " Neomake
 let g:neomake_error_sign = {
@@ -195,4 +188,4 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd! BufWritePost * silent! Neomake
 
 " Generate tags file
-autocmd! BufWritePost *.py,*.clj,*.cljs !ctags -R &
+autocmd! BufWritePost *.scss,*.py,*.clj,*.cljs !ctags -R &
