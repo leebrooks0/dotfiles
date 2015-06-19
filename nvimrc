@@ -105,7 +105,7 @@ let g:ctrlp_match_window = 'max:40'
 " ctags --list-kinds=language|all
 let g:ctrlp_buftag_types = {
             \ 'scss': '--scss-types=citmv',
-            \ 'clojure': '--language-force=clojure --clojure-types=ndfmiabcsvn',
+            \ 'clojure': '--language-force=clojure',
             \ }
 
 " Neomake
