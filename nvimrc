@@ -103,7 +103,10 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window = 'max:40'
 " To find out what tag kinds are recognised for the specific language:
 " ctags --list-kinds=language|all
-let g:ctrlp_buftag_types = { 'scss': '--scss-types=citmv' }
+let g:ctrlp_buftag_types = {
+            \ 'scss': '--scss-types=citmv',
+            \ 'clojure': '--language-force=clojure --clojure-types=ndfmiabcsvn',
+            \ }
 
 " Neomake
 let g:neomake_error_sign = {
