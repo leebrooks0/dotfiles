@@ -26,9 +26,9 @@ set smartcase
 
 " Tabs and spaces
 set expandtab                       " Replace tabs with spaces
-set shiftwidth=4                    " Number of spaces when indenting and dedenting
+set shiftwidth=2                    " Number of spaces when indenting and dedenting
 set shiftround
-set softtabstop=4                   " Backspace right through 'tab's
+set softtabstop=2                   " Backspace right through 'tab's
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -51,6 +51,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
+Plug 'Yggdroot/indentLine'
 
 " Clojure
 Plug 'tpope/vim-fireplace'
@@ -83,6 +84,11 @@ let delimitMate_excluded_ft = 'clojure'
 
 " Fugitive
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" indentLine
+" djangohtml highlighting is a mess
+au BufNewFile,BufRead *.html set filetype=html
+let g:indentLine_fileType = ['html']
 
 " Colorschme
 colorscheme jellybeans
