@@ -38,10 +38,7 @@ set softtabstop=2                   " Backspace right through 'tab's
 
 call plug#begin('~/.vim/plugged')
 
-" Aesthetics
 Plug 'nanotech/jellybeans.vim'
-
-" General
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
@@ -52,13 +49,6 @@ Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
 Plug 'Yggdroot/indentLine'
-
-" Clojure
-Plug 'tpope/vim-fireplace'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'vim-scripts/paredit.vim'
-
-" Testing
 Plug 'janko-m/vim-test'
 
 call plug#end()
@@ -125,9 +115,6 @@ nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
 
-" Rainbow Parentheses
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
@@ -187,9 +174,6 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 " Python lines should not be longer than 79 chars
 autocmd BufReadPre *.py setlocal colorcolumn=79
 
-" Automatically turn on rainbow parentheses
-autocmd BufRead * RainbowParentheses
-
 " Strip all whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -197,4 +181,4 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd! BufWritePost * silent! Neomake
 
 " Generate tags file
-autocmd! BufWritePost *.scss,*.py,*.clj,*.cljs !ctags -R &
+autocmd! BufWritePost *.scss,*.py !ctags -R &
