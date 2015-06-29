@@ -4,6 +4,7 @@ let mapleader = ' '
 
 set autoindent
 set autoread                      " Autoread files when externally updated
+set background=dark
 set backspace=indent,eol,start    " Backspace like you would expect
 set colorcolumn=80
 set cursorline
@@ -50,7 +51,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
-Plug 'Yggdroot/indentLine'
 Plug 'janko-m/vim-test'
 
 call plug#end()
@@ -75,10 +75,8 @@ let delimitMate_balance_matchpairs = 1
 " Fugitive
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" indentLine
 " djangohtml highlighting is a mess
 au BufNewFile,BufRead *.html set filetype=html
-let g:indentLine_fileType = ['html']
 
 " Colorschme
 colorscheme jellybeans
@@ -103,7 +101,6 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_autofind = 1
 " Always focus on files
 let g:nerdtree_tabs_smart_startup_focus = 2
-map <leader>e :NERDTreeTabsToggle<CR>
 
 " Neomake
 let g:neomake_error_sign = {
@@ -188,4 +185,4 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd! BufWritePost * silent! Neomake
 
 " Generate tags file
-autocmd! BufWritePost *.scss,*.py !ctags -R &
+autocmd! BufWritePost *.md,*.py,*.scss !ctags -R &
