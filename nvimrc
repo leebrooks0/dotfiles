@@ -136,8 +136,8 @@ nnoremap <leader><leader> <C-^>
 
 " CtrlP
 nnoremap <leader>p :CtrlP<cr>
-nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>b :CtrlPBufTag<cr>
+nnoremap <leader>l :CtrlPLine<cr>
 
 " Shift key is effort...
 noremap <cr> :
