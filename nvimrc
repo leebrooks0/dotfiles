@@ -53,6 +53,17 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
 Plug 'janko-m/vim-test'
 
+" Text Objects
+Plug 'kana/vim-textobj-user'
+Plug 'bps/vim-textobj-python'
+Plug 'kana/vim-textobj-entire'
+
+" Language Support
+Plug 'othree/html5.vim'
+Plug 'rstacruz/sparkup'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'exu/pgsql.vim'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -72,12 +83,6 @@ let delimitMate_expand_space = 1
 let delimitMate_expand_inside_quotes = 1
 let delimitMate_balance_matchpairs = 1
 
-" Fugitive
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-" djangohtml highlighting is a mess
-au BufNewFile,BufRead *.html set filetype=html
-
 " Colorschme
 colorscheme jellybeans
 " Highlights don't play well with 'cursorline'
@@ -93,7 +98,6 @@ let g:ctrlp_match_window = 'max:40'
 " ctags --list-kinds=language|all
 let g:ctrlp_buftag_types = {
             \ 'scss': '--scss-types=citmv',
-            \ 'clojure': '--language-force=clojure',
             \ }
 
 " Nerdtree
@@ -101,6 +105,7 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_autofind = 1
 " Always focus on files
 let g:nerdtree_tabs_smart_startup_focus = 2
+let NERDTreeIgnore = ['__pycache__']
 
 " Neomake
 let g:neomake_error_sign = {
@@ -130,6 +135,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " AutoFormat
 nnoremap <leader>f :Autoformat<cr>
+nnoremap <leader>i :silent !isort %<cr>
 
 " Easily get back to last file edited, good for TDD...
 nnoremap <leader><leader> <C-^>
@@ -143,12 +149,6 @@ nnoremap <leader>l :CtrlPLine<cr>
 noremap <cr> :
 " Restore <cr> in the quickfix buffer only
 autocmd BufRead quickfix nnoremap <buffer> <cr> <cr>
-
-" Fake text objects for entire buffer
-nnoremap cae ggdGi
-nnoremap dae ggdG
-nnoremap vae ggVG
-nnoremap yae ggyG
 
 " Easier escape
 inoremap jj <esc>
