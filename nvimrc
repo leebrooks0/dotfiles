@@ -40,6 +40,7 @@ set softtabstop=2                   " Backspace right through 'tab's
 call plug#begin('~/.vim/plugged')
 
 Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-airline'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
@@ -76,6 +77,9 @@ call plug#end()
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
+
+" Airline
+let g:airline_powerline_fonts = 1
 
 " DelimitMate
 let delimitMate_expand_cr = 1
