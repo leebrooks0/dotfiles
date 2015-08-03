@@ -45,8 +45,6 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'benekastah/neomake'
@@ -103,13 +101,6 @@ let g:ctrlp_match_window = 'max:40'
 let g:ctrlp_buftag_types = {
             \ 'scss': '--scss-types=citmv',
             \ }
-
-" Nerdtree
-let g:nerdtree_tabs_open_on_console_startup = 1
-let g:nerdtree_tabs_autofind = 1
-" Always focus on files
-let g:nerdtree_tabs_smart_startup_focus = 2
-let NERDTreeIgnore = ['__pycache__']
 
 " Neomake
 let g:neomake_error_sign = {
