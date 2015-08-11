@@ -50,6 +50,7 @@ Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
 Plug 'janko-m/vim-test'
+Plug 'justinmk/vim-sneak'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
@@ -74,9 +75,6 @@ call plug#end()
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
-
-" Airline
-let g:airline_powerline_fonts = 1
 
 " DelimitMate
 let delimitMate_expand_cr = 1
@@ -127,6 +125,16 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Disable arrow keys
+nnoremap <up>    <nop>
+nnoremap <down>  <nop>
+nnoremap <left>  <nop>
+nnoremap <right> <nop>
+inoremap <up>    <nop>
+inoremap <down>  <nop>
+inoremap <left>  <nop>
+inoremap <right> <nop>
+
 " AutoFormat
 nnoremap <leader>f :Autoformat<cr>
 nnoremap <leader>i :silent !isort %<cr>
@@ -140,7 +148,7 @@ nnoremap <leader>b :CtrlPBufTag<cr>
 nnoremap <leader>l :CtrlPLine<cr>
 
 " Shift key is effort...
-noremap <cr> :
+" noremap <cr> :
 " Restore <cr> in the quickfix buffer only
 autocmd BufRead quickfix nnoremap <buffer> <cr> <cr>
 
