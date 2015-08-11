@@ -2,13 +2,6 @@
 --links=no
 
 --exclude=.git
---exclude=bower_components
---exclude=node_modules
---exclude=site-packages
---exclude=tmp
---exclude=vendor
-
---langdef=Markdown
 --langmap=markdown:.md
 --regex-markdown=/^#[ \t](.*$)/\1/h,heading,headings/
 
@@ -19,12 +12,3 @@
 --regex-scss=/^[ \t]*(([A-Za-z0-9_-]+[ \t\n,]+)+)\{/\1/t,tag,tags/
 --regex-scss=/^[ \t]*@media\s+([A-Za-z0-9_-]+)/\1/m,media,medias/
 --regex-scss=/^[ \t]*\$([A-Za-z0-9_-]+)/\$\1/v,var,variables/
-
---langdef=Clojure
---langmap=Clojure:.clj
---langmap=Clojure:+.cljx
---langmap=Clojure:+.cljs
---regex-clojure=/\([ \t]*create-ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/
---regex-clojure=/\([ \t]*def[a-z]*[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/s,symbol/
---regex-clojure=/\([ \t]*intern[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/v,intern/
---regex-clojure=/\([ \t]*ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/

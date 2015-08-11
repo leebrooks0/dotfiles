@@ -51,6 +51,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-sneak'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
@@ -185,6 +186,3 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Run neomake on every save
 autocmd! BufWritePost * silent! Neomake
-
-" Generate tags file
-autocmd! BufWritePost *.md,*.py,*.scss !ctags -R &
