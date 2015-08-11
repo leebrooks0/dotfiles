@@ -40,7 +40,6 @@ set softtabstop=2                   " Backspace right through 'tab's
 call plug#begin('~/.vim/plugged')
 
 Plug 'nanotech/jellybeans.vim'
-Plug 'bling/vim-airline'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
