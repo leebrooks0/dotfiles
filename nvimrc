@@ -110,6 +110,9 @@ let g:neomake_warning_sign = {
             \ 'texthl': 'WarningMsg',
             \ }
 
+" Vim Sneak
+let g:sneak#streak = 1
+
 " test.vim
 nnoremap <leader>n :TestNearest<CR>
 nnoremap <leader>t :TestFile<CR>
@@ -125,6 +128,10 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 """ Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Make enter more useful in normal mode
+nnoremap <Enter> o<Esc>
+nnoremap <BS> O<Esc>
 
 " Disable arrow keys
 nnoremap <up>    <nop>
@@ -148,10 +155,10 @@ nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>b :CtrlPBufTag<cr>
 nnoremap <leader>l :CtrlPLine<cr>
 
-" Shift key is effort...
-" noremap <cr> :
-" Restore <cr> in the quickfix buffer only
-autocmd BufRead quickfix nnoremap <buffer> <cr> <cr>
+" Fugitive
+nnoremap <leader>g :Gstatus<cr>
+nnoremap <leader>r :Gread<cr>
+nnoremap <leader>d :Gdiff<cr>
 
 " Easier escape
 inoremap jj <esc>
