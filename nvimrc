@@ -62,7 +62,6 @@ Plug 'kana/vim-textobj-entire'
 Plug 'othree/html5.vim'
 Plug 'rstacruz/sparkup'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'exu/pgsql.vim'
 
 call plug#end()
 
@@ -133,11 +132,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <Enter> o<Esc>
 nnoremap <BS> O<Esc>
 
-" Disable arrow keys
-nnoremap <up>    <nop>
-nnoremap <down>  <nop>
-nnoremap <left>  <nop>
-nnoremap <right> <nop>
+" Disable arrow keys in insert mode
 inoremap <up>    <nop>
 inoremap <down>  <nop>
 inoremap <left>  <nop>
@@ -164,23 +159,23 @@ nnoremap <leader>d :Gdiff<cr>
 inoremap jj <esc>
 inoremap jk <esc>
 
-" Neovim terminal
-tnoremap <esc> <C-\><C-n>
-
 " Easier window management
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+nnoremap <up> <C-w>k
+nnoremap <down> <C-w>j
+nnoremap <left> <C-w>h
+nnoremap <right> <C-w>l
+
+" Less use of shift key in python
+autocmd FileType python inoremap - _
+autocmd FileType python inoremap _ -
+autocmd FileType python inoremap ; :
+autocmd FileType python inoremap : ;
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Show spelling errors with Git commit messages and Markdown
-autocmd BufNewFile,BufRead COMMIT_EDITMSG,*.md setlocal spell
 
 " .md files should be detected as Markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
