@@ -1,10 +1,7 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ' '
 
 set autoindent
 set autoread                      " Autoread files when externally updated
-set background=dark
 set backspace=indent,eol,start    " Backspace like you would expect
 set colorcolumn=80
 set cursorline
@@ -31,6 +28,10 @@ set shiftwidth=2                    " Number of spaces when indenting and dedent
 set shiftround
 set softtabstop=2                   " Backspace right through 'tab's
 
+colorscheme desert
+highlight ColorColumn ctermbg=234
+highlight CursorLine ctermbg=234 cterm=NONE
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Plugins
@@ -39,7 +40,7 @@ set softtabstop=2                   " Backspace right through 'tab's
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'nanotech/jellybeans.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
@@ -50,18 +51,13 @@ Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'rking/ag.vim'
 Plug 'janko-m/vim-test'
-Plug 'justinmk/vim-sneak'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'rstacruz/sparkup'
 
 " Text Objects
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
 Plug 'kana/vim-textobj-entire'
-
-" Language Support
-Plug 'othree/html5.vim'
-Plug 'rstacruz/sparkup'
-Plug 'cakebaker/scss-syntax.vim'
 
 call plug#end()
 
@@ -82,11 +78,6 @@ let delimitMate_expand_space = 1
 let delimitMate_expand_inside_quotes = 1
 let delimitMate_balance_matchpairs = 1
 
-" Colorschme
-colorscheme jellybeans
-" Highlights don't play well with 'cursorline'
-highlight clear SpellBad
-highlight SpellBad cterm=underline ctermfg=red
 
 " Ctrl-P
 let g:ctrlp_extensions = ['tag', 'buffertag']
@@ -108,9 +99,6 @@ let g:neomake_warning_sign = {
             \ 'text': 'W>',
             \ 'texthl': 'WarningMsg',
             \ }
-
-" Vim Sneak
-let g:sneak#streak = 1
 
 " test.vim
 nnoremap <leader>n :TestNearest<CR>
