@@ -1,12 +1,7 @@
 let mapleader = ' '
 
-set autoindent
-set autoread                      " Autoread files when externally updated
-set backspace=indent,eol,start    " Backspace like you would expect
 set colorcolumn=80
 set cursorline
-set history=200
-set laststatus=2                  " Always show statusline
 set noswapfile
 set nowrap
 set nowritebackup
@@ -14,11 +9,10 @@ set number
 set ruler
 set scrolloff=10                  " Lines above and below cursor when scrolling
 set shell=/bin/bash
-set wildmenu
 set wildmode=list:longest,full
 
 " Searching
-set incsearch
+set nohlsearch
 set ignorecase
 set smartcase
 
