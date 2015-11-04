@@ -17,6 +17,9 @@ set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 # Use Neovim everywhere
 set -x EDITOR nvim
 
+# Use Ag instead of find for fzf
+set -x FZF_DEFAULT_COMMAND 'ag -g ""'
+
 # Hide the fish greeting
 function fish_greeting
 end

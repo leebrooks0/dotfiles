@@ -32,17 +32,19 @@ set softtabstop=2                   " Backspace right through 'tab's
 
 call plug#begin('~/.vim/plugged')
 
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
-Plug 'rking/ag.vim'
 Plug 'janko-m/vim-test'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rstacruz/sparkup'
@@ -76,26 +78,15 @@ let delimitMate_expand_inside_quotes = 1
 let delimitMate_balance_matchpairs = 1
 
 
-" Ctrl-P
-let g:ctrlp_extensions = ['tag', 'buffertag']
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_match_window = 'max:40'
-" To find out what tag kinds are recognised for the specific language:
-" ctags --list-kinds=language|all
-let g:ctrlp_buftag_types = {
-            \ 'scss': '--scss-types=citmv',
-            \ }
-
 " Neomake
 let g:neomake_error_sign = {
-            \ 'text': 'E>',
-            \ 'texthl': 'ErrorMsg',
-            \ }
+      \ 'text': 'E>',
+      \ 'texthl': 'ErrorMsg',
+      \ }
 let g:neomake_warning_sign = {
-            \ 'text': 'W>',
-            \ 'texthl': 'WarningMsg',
-            \ }
+      \ 'text': 'W>',
+      \ 'texthl': 'WarningMsg',
+      \ }
 
 " test.vim
 nnoremap <leader>n :TestNearest<CR>
@@ -130,10 +121,13 @@ nnoremap <leader>i :silent !isort %<cr>
 " Easily get back to last file edited, good for TDD...
 nnoremap <leader><leader> <C-^>
 
-" CtrlP
-nnoremap <leader>p :CtrlP<cr>
-nnoremap <leader>b :CtrlPBufTag<cr>
-nnoremap <leader>l :CtrlPLine<cr>
+" fzf
+nnoremap <silent> <leader>p :Files<CR>
+nnoremap <silent> <leader>s :Buffers<CR>
+nnoremap <silent> <leader>l :BLines<CR>
+nnoremap <silent> <leader>. :Lines<CR>
+nnoremap <silent> <leader>b :BTags<CR>
+nnoremap <silent> <leader>/ :Ag<CR>
 
 " Fugitive
 nnoremap <leader>g :Gstatus<cr>
