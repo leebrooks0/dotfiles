@@ -1,5 +1,6 @@
 let mapleader = ' '
 
+set background=dark
 set colorcolumn=80
 set cursorline
 set noswapfile
@@ -22,9 +23,6 @@ set shiftwidth=2                    " Number of spaces when indenting and dedent
 set shiftround
 set softtabstop=2                   " Backspace right through 'tab's
 
-colorscheme desert
-highlight ColorColumn ctermbg=234
-highlight CursorLine ctermbg=234 cterm=NONE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -34,6 +32,7 @@ highlight CursorLine ctermbg=234 cterm=NONE
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
@@ -60,6 +59,10 @@ call plug#end()
 """ Plugin Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Colorscheme
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
 " AutoSave
 let g:auto_save = 1

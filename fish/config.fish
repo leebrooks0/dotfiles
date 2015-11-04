@@ -6,16 +6,13 @@ set fish_path $HOME/.oh-my-fish
 . $fish_path/oh-my-fish.fish
 Theme bobthefish
 
-# Use 256 colours
-set -x TERM xterm-256color
-
 # pyenv
 set -x PYENV_ROOT "$HOME/.pyenv"
 set -x PATH "$PYENV_ROOT/bin" $PATH
 status --is-interactive; and . (pyenv init -|psub)
 
-# nvm
-# nvm use stable > /dev/null
+# Use Neovim true colours
+set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 
 # Use Neovim everywhere
 set -x EDITOR nvim
