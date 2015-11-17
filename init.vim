@@ -42,7 +42,6 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-commentary'
-Plug 'Raimondi/delimitMate'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'janko-m/vim-test'
@@ -71,13 +70,6 @@ let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
 
-" DelimitMate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
-let delimitMate_expand_inside_quotes = 1
-let delimitMate_balance_matchpairs = 1
-
-
 " Neomake
 let g:neomake_error_sign = {
       \ 'text': 'E>',
@@ -94,6 +86,8 @@ nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
+let g:test#strategy = 'neovim'
+let test#python#runner = 'pytest'
 
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -144,20 +138,11 @@ nnoremap <down> <C-w>j
 nnoremap <left> <C-w>h
 nnoremap <right> <C-w>l
 
-" Less use of shift key in python
-autocmd FileType python inoremap - _
-autocmd FileType python inoremap _ -
-autocmd FileType python inoremap ; :
-autocmd FileType python inoremap : ;
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" .md files should be detected as Markdown
-autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " Python lines should not be longer than 79 chars
 autocmd BufReadPre *.py setlocal colorcolumn=79
