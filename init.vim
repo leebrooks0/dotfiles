@@ -10,6 +10,7 @@ set number
 set ruler
 set scrolloff=10                  " Lines above and below cursor when scrolling
 set shell=/bin/bash
+set undofile
 set wildmode=list:longest,full
 
 " Searching
