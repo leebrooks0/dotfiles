@@ -3,6 +3,8 @@ let mapleader = ' '
 set background=dark
 set colorcolumn=80
 set cursorline
+set grepformat=%f:%l:%c:%m
+set grepprg=ag\ --vimgrep\ $*
 set noswapfile
 set nowrap
 set nowritebackup
@@ -24,7 +26,6 @@ set shiftwidth=2                    " Number of spaces when indenting and dedent
 set shiftround
 set softtabstop=2                   " Backspace right through 'tab's
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Plugins
@@ -32,7 +33,6 @@ set softtabstop=2                   " Backspace right through 'tab's
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.vim/plugged')
-
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -153,3 +153,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Run neomake on every save
 autocmd! BufWritePost * silent! Neomake
+
+" Automatically open the quickfix window when quickfix commands are run
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
