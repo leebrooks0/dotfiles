@@ -3,6 +3,7 @@ let mapleader = ' '
 set background=dark
 set colorcolumn=80
 set cursorline
+set gdefault
 set grepformat=%f:%l:%c:%m
 set grepprg=ag\ --vimgrep\ $*
 set mouse=
