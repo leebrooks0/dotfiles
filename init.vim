@@ -4,8 +4,6 @@ set background=dark
 set colorcolumn=80
 set cursorline
 set gdefault
-set grepformat=%f:%l:%c:%m
-set grepprg=ag\ --vimgrep\ $*
 set mouse=
 set noswapfile
 set nowrap
@@ -41,6 +39,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
+Plug 'rking/ag.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
