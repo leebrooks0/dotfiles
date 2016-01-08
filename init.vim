@@ -5,6 +5,7 @@ set colorcolumn=80
 set cursorline
 set grepformat=%f:%l:%c:%m
 set grepprg=ag\ --vimgrep\ $*
+set mouse=
 set noswapfile
 set nowrap
 set nowritebackup
