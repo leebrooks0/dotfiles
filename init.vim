@@ -158,7 +158,3 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Run neomake on every save
 autocmd! BufWritePost * silent! Neomake
-
-" Automatically open the quickfix window when quickfix commands are run
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
