@@ -2,6 +2,7 @@ let mapleader = ' '
 
 set background=dark
 set colorcolumn=80
+set clipboard+=unnamedplus
 set cursorline
 set gdefault
 set mouse=
