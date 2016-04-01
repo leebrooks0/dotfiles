@@ -90,8 +90,11 @@ nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>a :TestSuite<CR>
 nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
-let g:test#strategy = 'neovim'
 let test#python#runner = 'pytest'
+let test#python#pytest#options = {
+  \ 'file':    '--tb=line',
+  \ 'suite':   '--tb=line',
+\}
 
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
