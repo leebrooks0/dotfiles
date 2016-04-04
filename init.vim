@@ -93,7 +93,7 @@ nnoremap <leader>v :TestVisit<CR>
 let test#python#runner = 'pytest'
 let test#python#pytest#options = {
   \ 'file':    '--tb=short',
-  \ 'suite':   '--tb=short',
+  \ 'suite':   '--tb=no',
 \}
 
 " YCM
