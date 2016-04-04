@@ -92,8 +92,8 @@ nnoremap <leader>l :TestLast<CR>
 nnoremap <leader>v :TestVisit<CR>
 let test#python#runner = 'pytest'
 let test#python#pytest#options = {
-  \ 'file':    '--tb=line',
-  \ 'suite':   '--tb=line',
+  \ 'file':    '--tb=short',
+  \ 'suite':   '--tb=short',
 \}
 
 " YCM
