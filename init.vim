@@ -5,7 +5,6 @@ set colorcolumn=80
 set clipboard+=unnamedplus
 set cursorline
 set gdefault
-set mouse=
 set noswapfile
 set nowrap
 set nowritebackup
@@ -35,15 +34,22 @@ set softtabstop=2                   " Backspace right through 'tab's
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Navigation
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Code completion
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'rking/ag.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-fugitive'
-Plug 'Valloric/YouCompleteMe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'benekastah/neomake'
@@ -65,6 +71,29 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" CtrlP
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " Ignore files in .gitignore
+let g:ctrlp_match_window = 'max:30'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_extensions = ['buffertag', 'line']
+
+" NERDTree
+nnoremap <silent><F8> :NERDTreeToggle<cr>
+nnoremap <silent><F9> :NERDTreeFind<cr>
+let NERDTreeIgnore=['\.pyc$', '__pycache__']
+
+" Tagbar
+let g:tagbar_sort = 0 " Don't sort A-Z
+nnoremap <silent><F7> :TagbarToggle<cr>
+
+" YCM
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 " Colorscheme
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
@@ -73,16 +102,6 @@ colorscheme gruvbox
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
-
-" Neomake
-let g:neomake_error_sign = {
-      \ 'text': 'E>',
-      \ 'texthl': 'ErrorMsg',
-      \ }
-let g:neomake_warning_sign = {
-      \ 'text': 'W>',
-      \ 'texthl': 'WarningMsg',
-      \ }
 
 " test.vim
 nnoremap <leader>n :TestNearest<CR>
@@ -96,24 +115,11 @@ let test#python#pytest#options = {
   \ 'suite':   '--tb=no',
 \}
 
-" YCM
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Make enter more useful in normal mode
-nnoremap <Enter> o<Esc>
-nnoremap <BS> O<Esc>
-
-" Disable arrow keys in insert mode
-inoremap <up>    <nop>
-inoremap <down>  <nop>
-inoremap <left>  <nop>
-inoremap <right> <nop>
 
 " AutoFormat
 nnoremap <leader>f :Autoformat<cr>
@@ -122,22 +128,14 @@ nnoremap <leader>i :silent !isort %<cr>
 " Easily get back to last file edited, good for TDD...
 nnoremap <leader><leader> <C-^>
 
-" fzf
-nnoremap <silent> <leader>p :Files<CR>
-nnoremap <silent> <leader>s :Buffers<CR>
-nnoremap <silent> <leader>l :BLines<CR>
-nnoremap <silent> <leader>. :Lines<CR>
-nnoremap <silent> <leader>b :BTags<CR>
-nnoremap <silent> <leader>/ :Ag<CR>
+" Ctrl-p
+nnoremap <silent><leader>p :CtrlP<CR>
+nnoremap <silent><leader>b :CtrlPBufTag<CR>
 
 " Fugitive
 nnoremap <leader>g :Gstatus<cr>
 nnoremap <leader>r :Gread<cr>
 nnoremap <leader>d :Gdiff<cr>
-
-" Easier escape
-inoremap jj <esc>
-inoremap jk <esc>
 
 " Easier window management
 nnoremap <up> <C-w>k
