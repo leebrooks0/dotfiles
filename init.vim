@@ -85,7 +85,7 @@ let g:ctrlp_extensions = ['buffertag', 'line']
 " NERDTree
 nnoremap <silent><F8> :NERDTreeToggle<cr>
 nnoremap <silent><F9> :NERDTreeFind<cr>
-let NERDTreeIgnore=['\.pyc$', '__pycache__']
+let NERDTreeIgnore=['\.pyc$', '__pycache__', '\.egg-info$']
 
 " Tagbar
 let g:tagbar_sort = 0 " Don't sort A-Z
