@@ -67,7 +67,7 @@ let test#python#pytest#options = {
 " Easily get back to last file edited, good for TDD...
 nnoremap <leader><leader> <C-^>
 
-nnoremap <leader>f :!autopep8 -i %<cr>
+nnoremap <leader>f :!autopep8 -i --max-line-length 120 %<cr>
 
 " Make Y act like D, C etc.
 nnoremap Y y$
